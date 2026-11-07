@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#161c1a"/>
+  <path d="M0 0h1200v630H0z" fill="url(#grid)" opacity=".28"/>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#e3e2da" stroke-opacity=".18"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1"><stop stop-color="#161c1a"/><stop offset=".62" stop-color="#161c1a" stop-opacity=".95"/><stop offset="1" stop-color="#315140"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fade)"/>
+  <circle cx="945" cy="315" r="230" fill="none" stroke="#e3e2da" stroke-opacity=".5" stroke-width="2"/>
+  <ellipse cx="945" cy="315" rx="230" ry="130" fill="none" stroke="#edc54e" stroke-width="2" transform="rotate(-32 945 315)"/>
+  <circle cx="1023" cy="125" r="12" fill="#e64f35"/>
+  <path d="M945 275v80m-40-40h80m-68-28 56 56m0-56-56 56" stroke="#edc54e" stroke-width="8"/>
+  <text x="86" y="110" fill="#9fc7b8" font-family="monospace" font-size="18" letter-spacing="4">BHUWAN TEJA PONAKALA / PORTFOLIO</text>
+  <text x="82" y="303" fill="#e3e2da" font-family="Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="-5">AI &amp; DATA SCIENCE</text>
+  <text x="86" y="390" fill="#9fc7b8" font-family="Georgia, serif" font-size="72" font-style="italic">from signal to software.</text>
+  <text x="88" y="520" fill="#c3cac3" font-family="monospace" font-size="18" letter-spacing="3">PROJECTS · RESEARCH · CREDENTIALS</text>
+</svg>
