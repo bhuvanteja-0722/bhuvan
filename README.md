@@ -1,13 +1,15 @@
-# Bhuvan Teja — AI & Data Science Portfolio
+# Bhuvan Teja Ponakala — AI & Data Science Portfolio
 
-A new portfolio built around a signal-poster visual, an interactive project workbench, and a linked archive of 27 certificates. The resume is available from the site navigation and at `/resume.html`.
+A ground-up portfolio redesign with a cinematic particle-field hero, a custom dimensional ProofPass award feature, an interactive index of 17 projects, and a linked archive of all 27 certificate scans. The responsive resume opens at /resume.html and can be printed or saved as a PDF from the browser.
 
 ## Run locally
 
-From this folder, run `python3 -m http.server 8000` and open `http://localhost:8000`.
+From this folder, run ./scripts/build-static.sh, then start a local server with python3 -m http.server 8000.
 
-The certificate originals are retained in `assets/certificates/`; presentation copies in `assets/certificates/cropped/` have excess viewer margins trimmed where needed.
+Open http://localhost:8000/ for the source files. For the production output, open http://localhost:8000/dist/.
+
+Certificate scans are framed with object-fit: contain so the complete document remains visible. Each certificate links to its original scan and, where supplied, its issuer verification page.
 
 ## Deploy on Render
 
-This is a static site, so Render can host it on its free static-site service. The root `render.yaml` builds a publish-only `dist/` directory and configures automatic deploys from `main`. Create a Render Blueprint from this repository to apply the configuration; Render will provide the public `onrender.com` address after the first deploy.
+This is a static site. The root render.yaml builds a lean dist/ directory for Render's free static-site service and deploys automatically from main.

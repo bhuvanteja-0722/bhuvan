@@ -1,175 +1,182 @@
 <!doctype html>
-<html lang="en" data-type="software" data-radius="sharp" data-buttons="arrow">
+<html lang="en" data-type="software" data-site-kind="software">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
-  <meta name="theme-color" content="#161c1a">
+  <meta name="theme-color" content="#080b12">
   <meta name="description" content="Resume of Bhuvan Teja Ponakala, an Artificial Intelligence and Data Science engineering student in Bengaluru.">
+  <meta property="og:title" content="Resume — Bhuvan Teja Ponakala">
+  <meta property="og:description" content="Education, project experience, recognition, and technical skills.">
+  <meta property="og:type" content="profile">
   <title>Resume — Bhuvan Teja Ponakala</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fresh.css">
   <style>
-    .resume-toolbar { width: min(calc(100% - 2 * var(--gutter)), 1120px); min-height: 78px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .resume-toolbar a, .resume-toolbar button { min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center; border: 1px solid var(--line-dark); background: transparent; color: var(--ink); font: 12px var(--font-text); cursor: pointer; }
-    .resume-toolbar a:hover, .resume-toolbar button:hover { border-color: var(--accent); color: var(--accent); }
-    .resume-shell { width: min(calc(100% - 2 * var(--gutter)), 1120px); margin: 20px auto 70px; display: grid; grid-template-columns: minmax(250px, .72fr) minmax(0, 1.6fr); background: var(--paper); color: var(--paper-ink); }
-    .resume-rail { padding: 40px 28px; display: flex; flex-direction: column; gap: 34px; background: var(--poster); color: var(--paper); }
-    .resume-monogram { width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid var(--amber); border-radius: 50%; color: var(--amber); font-size: 18px; }
-    .resume-rail h1 { margin: 0; font-size: clamp(30px, 4vw, 44px); font-weight: 600; letter-spacing: -.07em; line-height: .98; }
-    .resume-role { margin: -22px 0 0; color: #d2ded4; font-size: 13px; line-height: 1.6; }
+    body.resume-page { min-height: 100vh; padding: 100px 0 40px; background: radial-gradient(ellipse at 74% 7%,rgba(62,115,181,.18),transparent 35%),#080b12; }
+    .resume-toolbar { width: var(--wrap); margin: 0 auto 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .resume-toolbar a,.resume-toolbar button { min-height: 44px; padding: 0 13px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(219,232,250,.2); border-radius: 4px; background: rgba(15,22,33,.85); color: #d7e0eb; font: 10px var(--font); cursor: pointer; transition: color .2s,border-color .2s,background .2s; }
+    .resume-toolbar a:hover,.resume-toolbar button:hover { border-color: var(--blue); color: var(--blue-2); }
+    .resume-toolbar .resume-brand { color: #aab7c6; font: 8px var(--mono); letter-spacing: .1em; }
+    .resume-shell { width: var(--wrap); max-width: 1150px; margin: 0 auto; display: grid; grid-template-columns: 310px minmax(0,1fr); overflow: hidden; background: #f2f4f7; color: #161d29; box-shadow: 0 32px 100px rgba(0,0,0,.4); }
+    .resume-rail { padding: 36px 27px; display: flex; flex-direction: column; gap: 29px; background: linear-gradient(145deg,#111c2b,#0c121c 67%,#152338); color: #edf3fa; }
+    .resume-monogram { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(101,186,255,.52); border-radius: 50%; color: var(--blue-2); font-size: 14px; font-weight: 600; letter-spacing: -.07em; }
+    .resume-rail h1 { margin: 0; color: #f3f6fb; font-size: 35px; font-weight: 500; letter-spacing: -.065em; line-height: .98; }
+    .resume-role { margin: -20px 0 0; color: #aebcce; font-size: 12px; line-height: 1.65; }
     .resume-rail section { display: grid; gap: 9px; }
-    .resume-rail h2 { margin: 0; padding-bottom: 8px; border-bottom: 1px solid rgba(227,226,218,.32); color: var(--amber); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
-    .resume-rail p, .resume-rail a { margin: 0; color: #e5e9df; font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
-    .resume-rail a { width: fit-content; border-bottom: 1px solid rgba(227,226,218,.4); }
-    .resume-rail a:hover { color: var(--amber); }
-    .resume-rail .rail-list { display: grid; gap: 6px; }
-    .resume-rail .rail-list a { min-height: 32px; display: inline-flex; align-items: center; }
-    .resume-content { padding: 42px clamp(25px, 5vw, 62px); }
-    .resume-content > header { padding-bottom: 18px; border-bottom: 1px solid var(--line-light); }
-    .resume-content .resume-kicker { margin: 0 0 12px; color: #54715e; font: 10px var(--font-mono); letter-spacing: .09em; text-transform: uppercase; }
-    .resume-content > header p:last-child { margin: 0; color: #5d6b61; font-size: 12px; line-height: 1.7; }
-    .resume-section { padding-top: 23px; }
-    .resume-section h2 { margin: 0 0 12px; color: #40624e; font: 11px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
-    .resume-section p, .resume-section li { color: #46564b; font-size: 11px; line-height: 1.65; }
-    .resume-section p { margin: 7px 0; }
-    .resume-row { display: flex; justify-content: space-between; gap: 16px; font-size: 12px; }
-    .resume-row span { flex: 0 0 auto; color: #66746a; font: 10px var(--font-mono); }
-    .resume-content ul { margin: 8px 0 0; padding-left: 17px; }
-    .resume-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 18px; }
-    .resume-project { padding: 0 0 8px; border-bottom: 1px solid rgba(26,41,34,.16); }
-    .resume-project b { font-size: 11px; }
-    .resume-project a { color: #41634f; font-size: 10px; text-decoration: underline; text-underline-offset: 2px; }
-    .resume-project p { margin: 4px 0 0; }
-    .resume-skills { display: grid; grid-template-columns: 100px 1fr; gap: 7px 14px; }
-    .resume-skills b { color: #253c2e; font: 10px var(--font-mono); }
-    .resume-skills span { color: #46564b; font-size: 11px; line-height: 1.6; }
-    .resume-credential { display: inline-flex; min-height: 38px; align-items: center; color: #41634f; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
-    .resume-bottom { width: min(calc(100% - 2 * var(--gutter)), 1120px); margin: 0 auto 30px; display: flex; justify-content: space-between; gap: 20px; color: #9ca69f; font: 10px var(--font-mono); }
+    .resume-rail h2 { margin: 0 0 2px; padding-bottom: 8px; border-bottom: 1px solid rgba(218,231,248,.19); color: #80c7ff; font: 8px var(--mono); letter-spacing: .13em; }
+    .resume-rail p,.resume-rail a { margin: 0; color: #d0d9e5; font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+    .resume-rail a { width: fit-content; border-bottom: 1px solid rgba(206,226,247,.27); }
+    .resume-rail a:hover { color: #9bd5ff; border-color: #9bd5ff; }
+    .resume-rail .rail-socials { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; }
+    .resume-rail .rail-socials a { min-height: 30px; display: inline-flex; align-items: center; font-size: 10px; }
+    .resume-rail .resume-skill-line { display: grid; gap: 4px; }
+    .resume-rail .resume-skill-line b { color: #f0f4fa; font-size: 10px; font-weight: 500; }
+    .resume-rail .resume-skill-line span { color: #acbacb; font-size: 10px; line-height: 1.6; }
+    .resume-content { padding: 38px clamp(27px,5vw,60px) 45px; }
+    .resume-content > header { padding-bottom: 22px; border-bottom: 1px solid rgba(19,28,42,.15); }
+    .resume-content .resume-kicker { margin: 0 0 11px; color: #377bb5; font: 8px var(--mono); letter-spacing: .14em; }
+    .resume-content > header p:last-child { max-width: 620px; margin: 0; color: #536071; font-size: 13px; line-height: 1.72; }
+    .resume-section { padding-top: 20px; }
+    .resume-section h2 { margin: 0 0 11px; color: #377bb5; font: 9px var(--mono); letter-spacing: .12em; }
+    .resume-section p,.resume-section li { color: #4b5664; font-size: 11px; line-height: 1.65; }
+    .resume-section p { margin: 6px 0; }
+    .resume-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; font-size: 11px; }
+    .resume-row b { font-weight: 600; }
+    .resume-row span { flex: 0 0 auto; color: #727f8e; font: 8px var(--mono); }
+    .resume-content ul { margin: 8px 0 0; padding-left: 16px; }
+    .resume-recognition { padding: 13px 14px; border-left: 2px solid #4c9bd8; background: #e7edf4; }
+    .resume-projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 18px; }
+    .resume-project { min-width: 0; padding: 0 0 9px; border-bottom: 1px solid rgba(19,28,42,.13); }
+    .resume-project b { color: #182332; font-size: 11px; }
+    .resume-project a { color: #326fa7; font-size: 9px; text-decoration: underline; text-underline-offset: 2px; }
+    .resume-project p { margin: 4px 0; font-size: 10px; line-height: 1.5; }
+    .resume-credential { min-height: 30px; display: inline-flex; align-items: center; color: #326fa7; font-size: 9px; text-decoration: underline; text-underline-offset: 3px; }
+    .resume-bottom { width: var(--wrap); max-width: 1150px; margin: 14px auto 0; display: flex; justify-content: space-between; gap: 18px; color: #8492a3; font: 8px var(--mono); letter-spacing: .07em; }
     @media (max-width: 760px) {
-      .resume-shell { grid-template-columns: minmax(0, 1fr); margin-top: 4px; }
-      .resume-rail { padding: 28px 23px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
-      .resume-rail > :nth-child(1), .resume-rail > :nth-child(2), .resume-role { grid-column: 1 / -1; }
-      .resume-rail h1 { max-width: 420px; }
-      .resume-rail section { align-content: start; }
-      .resume-content { padding: 30px 23px; }
-      .resume-projects { grid-template-columns: minmax(0, 1fr); }
+      .resume-shell { grid-template-columns: minmax(0,1fr); }
+      .resume-rail { padding: 26px 23px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; }
+      .resume-rail > :nth-child(1),.resume-rail > :nth-child(2),.resume-role { grid-column: 1/-1; }
+      .resume-content { padding: 28px 23px 35px; }
+      .resume-projects { grid-template-columns: minmax(0,1fr); }
     }
     @media (max-width: 440px) {
-      .resume-toolbar { align-items: stretch; }
-      .resume-toolbar a, .resume-toolbar button { padding-inline: 10px; font-size: 10px; }
-      .resume-rail { grid-template-columns: minmax(0, 1fr); }
-      .resume-rail > :nth-child(1), .resume-rail > :nth-child(2), .resume-role { grid-column: 1; }
+      body.resume-page { padding-top: 84px; }
+      .resume-toolbar .resume-brand { display: none; }
+      .resume-toolbar a,.resume-toolbar button { padding-inline: 9px; font-size: 9px; }
+      .resume-rail { grid-template-columns: minmax(0,1fr); }
+      .resume-rail > :nth-child(1),.resume-rail > :nth-child(2),.resume-role { grid-column: 1; }
       .resume-row { display: grid; gap: 4px; }
-      .resume-skills { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .resume-content { padding-inline: 18px; }
+      .resume-bottom { font-size: 6px; }
     }
     @media print {
-      @page { size: A4; margin: 11mm; }
-      body { background: #fff; color: #17231c; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .resume-toolbar, .resume-bottom { display: none; }
-      .resume-shell { width: 100%; margin: 0; grid-template-columns: 31% 69%; box-shadow: none; }
-      .resume-rail { padding: 26px 18px; gap: 22px; }
-      .resume-content { padding: 26px 28px; }
-      .resume-content > header, .resume-section { break-inside: avoid; }
+      @page { size: A4; margin: 9mm; }
+      body.resume-page { padding: 0; background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .resume-toolbar,.resume-bottom { display: none; }
+      .resume-shell { width: 100%; max-width: none; margin: 0; grid-template-columns: 27% 73%; overflow: visible; box-shadow: none; }
+      .resume-rail { padding: 25px 18px; gap: 21px; }
+      .resume-rail h1 { font-size: 26px; }
+      .resume-content { padding: 26px 27px; }
+      .resume-content > header,.resume-section { break-inside: avoid; }
+      .resume-projects { gap: 7px 13px; }
       a { text-decoration: none; }
     }
   </style>
 </head>
-<body>
+<body class="resume-page">
   <a class="skip-link" href="#resume-main">Skip to resume</a>
-  <div class="resume-toolbar">
+  <div class="resume-toolbar page-wrap">
     <a href="index.html">← Back to portfolio</a>
-    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    <span class="resume-brand">BHUVAN TEJA PONAKALA / RESUME</span>
+    <button type="button" onclick="window.print()">Print / Save as PDF <span aria-hidden="true">↗</span></button>
   </div>
   <main class="resume-shell" id="resume-main">
     <aside class="resume-rail">
-      <div class="resume-monogram" aria-hidden="true">B.</div>
+      <div class="resume-monogram" aria-hidden="true">BTP</div>
       <h1>Bhuvan Teja Ponakala</h1>
-      <p class="resume-role">Artificial Intelligence &amp; Data Science engineering student</p>
+      <p class="resume-role">Artificial Intelligence &amp; Data Science engineering student · Bengaluru, India</p>
+
       <section>
-        <h2>Contact</h2>
-        <p>Bengaluru, India</p>
+        <h2>CONTACT</h2>
         <a href="mailto:bhuvanteja.ad24@bmsce.ac.in">bhuvanteja.ad24@bmsce.ac.in</a>
         <a href="https://www.linkedin.com/in/bhuvanteja-ponakala-696206330/" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
         <a href="https://github.com/bhuvanteja-0722" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
       </section>
+
       <section>
-        <h2>Study</h2>
-        <p><b>B.E. Artificial Intelligence &amp; Data Science</b><br>B.M.S. College of Engineering<br>2024–2028</p>
+        <h2>EDUCATION</h2>
+        <p><b>B.E. Artificial Intelligence &amp; Data Science</b><br>B.M.S. College of Engineering<br>2024–2028 · Bengaluru</p>
       </section>
+
       <section>
-        <h2>Profiles</h2>
-        <div class="rail-list">
-          <a href="https://www.kaggle.com/bhuvantejaponakala22" target="_blank" rel="noopener noreferrer">Kaggle ↗</a>
-          <a href="https://leetcode.com/u/bhuvan_teja_0722/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
-          <a href="https://www.hackerrank.com/profile/bhuvanteja_ad24" target="_blank" rel="noopener noreferrer">HackerRank ↗</a>
-          <a href="https://unstop.com/u/bhuvapon96449" target="_blank" rel="noopener noreferrer">Unstop ↗</a>
-          <a href="https://x.com/bhuvanteja_0722" target="_blank" rel="noopener noreferrer">X ↗</a>
-          <a href="https://www.instagram.com/bhuvan_teja_0722/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-        </div>
+        <h2>TECHNICAL TOOLKIT</h2>
+        <div class="resume-skill-line"><b>Data</b><span>Python, SQL, EDA, Excel, statistics, visualization</span></div>
+        <div class="resume-skill-line"><b>AI</b><span>Machine learning, deep learning, computer vision, GenAI, LLMs, agents</span></div>
+        <div class="resume-skill-line"><b>Engineering</b><span>C, C++, Java, JavaScript, React, HTML/CSS, data structures, DBMS, OOP</span></div>
       </section>
+
       <section>
-        <h2>Credentials</h2>
-        <p>27 certificates across AI, data, programming, development and hackathons.</p>
-        <a href="index.html#credentials">Open all certificates ↗</a>
+        <h2>ONLINE PROFILES</h2>
+        <div class="rail-socials" id="social-links"></div>
+      </section>
+
+      <section>
+        <h2>CONTINUING LEARNING</h2>
+        <p>27 certificates across AI, data, programming, software development, and hackathons.</p>
+        <a href="index.html#credentials">View scans and verification links ↗</a>
       </section>
     </aside>
 
     <div class="resume-content">
       <header>
-        <p class="resume-kicker">Resume / 2026</p>
-        <p>Student developer focused on practical machine learning, data tools and software. Builds project work from exploration and modeling through to usable prototypes.</p>
+        <p class="resume-kicker">RESUME / 2026</p>
+        <p>Student engineer building practical work across machine learning, data systems, and software. Interested in carrying technical ideas from exploration into tools people can understand and use.</p>
       </header>
 
       <section class="resume-section">
-        <h2>Recognition</h2>
-        <div class="resume-row"><b>Special Recognition Prize · MST Blockchain × Newrro 24-Hour Buildathon</b><span>2026</span></div>
-        <p>Team MIB built ProofPass, an AI and zero-knowledge skill passport designed to make digital credentials easier to verify.</p>
-        <a class="resume-credential" href="https://www.linkedin.com/feed/update/urn:li:activity:7515700595832590336/" target="_blank" rel="noopener noreferrer">LinkedIn post ↗</a>
-        <a class="resume-credential" href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">ProofPass repository ↗</a>
+        <h2>RECOGNITION</h2>
+        <div class="resume-recognition">
+          <div class="resume-row"><b>Special Recognition Prize · MST Blockchain × Newrro 24-Hour Buildathon</b><span>2026</span></div>
+          <p>Team MIB built ProofPass, an AI and zero-knowledge skill passport designed to make digital credentials easier to verify.</p>
+          <a class="resume-credential" href="https://www.linkedin.com/feed/update/urn:li:activity:7515700595832590336/" target="_blank" rel="noopener noreferrer">Read the LinkedIn post ↗</a>
+        </div>
       </section>
 
       <section class="resume-section">
-        <h2>Experience</h2>
+        <h2>EXPERIENCE</h2>
         <div class="resume-row"><b>Flyrank AI · Machine Learning Internship</b><span>Project work</span></div>
-        <p>Worked across search intelligence, dataset preparation, baseline modeling, validation and ranked recommendation workflows.</p>
+        <p>Worked across search intelligence, dataset preparation, baseline modeling, validation, and ranked recommendation workflows.</p>
       </section>
 
       <section class="resume-section">
-        <h2>Selected projects</h2>
+        <h2>SELECTED PROJECTS</h2>
         <div class="resume-projects">
-          <article class="resume-project"><b>ProofPass</b> · Blockchain / identity <p>Team MIB's AI and zero-knowledge skill passport, built during a 24-hour buildathon.</p><a href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">Open project ↗</a></article>
-          <article class="resume-project"><b>NovaOS</b> · Systems <p>General-purpose x86-64 operating system in progress, with a reproducible boot path and kernel initialization work.</p><a href="https://github.com/bhuvanteja-0722/NovaOS" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>FlowPilot</b> · AI / fintech <p>Cash-flow copilot for independent sellers, turning payment activity into an operating brief.</p><a href="https://github.com/bhuvanteja-0722/FlowPilot" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>SpotWise</b> · Data / decision systems <p>Local business location research with readiness and break-even scenarios.</p><a href="https://github.com/bhuvanteja-0722/SpotWise" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>India Cricket Vision</b> · Computer vision <p>Computer vision project exploring cricket footage and player-action analysis.</p><a href="https://github.com/bhuvanteja-0722/india-cricket-vision" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>AI Resume Screening</b> · AI / NLP <p>Resume screening system matching candidate documents to role requirements.</p><a href="https://github.com/bhuvanteja-0722/AI-resume-screening-system" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>Knowledge Base Q&amp;A</b> · LLMs / retrieval <p>Question-answering chatbot grounded in a supplied knowledge base.</p><a href="https://github.com/bhuvanteja-0722/python-chat-bot-using-knowledge-base" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
-          <article class="resume-project"><b>RecoverAI</b> · AI / financial operations <p>Payment-failure intelligence and recovery workflows for accounts needing attention.</p><a href="https://github.com/bhuvanteja-0722/recoverai" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>ProofPass</b> · Digital identity<p>AI and zero-knowledge skill passport built with Team MIB during a 24-hour buildathon.</p><a href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">Open project ↗</a></article>
+          <article class="resume-project"><b>Career Signal</b> · Career intelligence<p>Searches public employer job feeds and turns role signals into a learning plan.</p><a href="https://github.com/bhuvanteja-0722/carrier-signal" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>SupeRR Selector</b> · Sports analytics<p>Scouting dashboard built around public T20 evidence, role context, and candidate review.</p><a href="https://github.com/bhuvanteja-0722/SupeRR-Selector-Season-2" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>The 4 PM Hunger Detective</b> · Health education<p>Mobile-first, non-diagnostic educational quiz prototype for a hackathon brief.</p><a href="https://github.com/bhuvanteja-0722/hungerdetective" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>NovaOS</b> · Systems<p>General-purpose x86-64 operating system focused on boot and kernel initialization.</p><a href="https://github.com/bhuvanteja-0722/NovaOS" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>FlowPilot</b> · AI / fintech<p>Cash-flow copilot turning payment activity into an operating brief for independent sellers.</p><a href="https://github.com/bhuvanteja-0722/FlowPilot" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>SpotWise</b> · Data / decision systems<p>Location research for local businesses with readiness and break-even scenarios.</p><a href="https://github.com/bhuvanteja-0722/SpotWise" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
+          <article class="resume-project"><b>India Cricket Vision</b> · Computer vision<p>Computer-vision exploration of cricket footage and player actions.</p><a href="https://github.com/bhuvanteja-0722/india-cricket-vision" target="_blank" rel="noopener noreferrer">Open repository ↗</a></article>
         </div>
-        <a class="resume-credential" href="index.html#projects">View all 14 project repositories ↗</a>
+        <a class="resume-credential" href="index.html#work">Explore all 17 portfolio projects ↗</a>
       </section>
 
       <section class="resume-section">
-        <h2>Skills</h2>
-        <div class="resume-skills">
-          <b>DATA</b><span>Python, SQL, exploratory data analysis, Excel, visualization, statistics</span>
-          <b>AI</b><span>Machine learning, deep learning, computer vision, generative AI, LLMs, agents</span>
-          <b>ENGINEERING</b><span>C, C++, Java, JavaScript, React, HTML/CSS, data structures, DBMS, OOP</span>
-        </div>
-      </section>
-
-      <section class="resume-section">
-        <h2>Learning</h2>
-        <p>Kaggle × Google AI Agents Intensive · GUVI × HCL Full Stack Development · Google Cloud Generative AI Studio · Deloitte Data Analytics Job Simulation · Tata GenAI Data Analytics Job Simulation · Cisco Data Analytics Essentials · Anthropic AI courses.</p>
-        <a class="resume-credential" href="index.html#credentials">View all 27 certificate scans and verification links ↗</a>
+        <h2>ADDITIONAL TECHNICAL WORK</h2>
+        <p>AI resume screening · Knowledge-base Q&amp;A · RecoverAI · Outbreak Agent Demo · SevaTrack · Crop AI · FlyRank ML · Razorpay Track 3 / RecoverAI · Smart Scheduler.</p>
+        <p>Project descriptions, source links, and the full credential archive are available in the <a class="resume-credential" href="index.html">online portfolio ↗</a>.</p>
       </section>
     </div>
   </main>
   <div class="resume-bottom"><span>BHUVAN TEJA PONAKALA</span><span>AI / DATA SCIENCE · BENGALURU</span></div>
+  <script src="portfolio-data.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

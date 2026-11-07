@@ -1,19 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#161c1a"/>
-  <path d="M0 0h1200v630H0z" fill="url(#grid)" opacity=".28"/>
   <defs>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0v48" fill="none" stroke="#e3e2da" stroke-opacity=".18"/>
-    </pattern>
-    <linearGradient id="fade" x1="0" x2="1"><stop stop-color="#161c1a"/><stop offset=".62" stop-color="#161c1a" stop-opacity=".95"/><stop offset="1" stop-color="#315140"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#080b12"/><stop offset=".56" stop-color="#0d1420"/><stop offset="1" stop-color="#17233a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#3c75b9" stop-opacity=".38"/><stop offset="1" stop-color="#3c75b9" stop-opacity="0"/></radialGradient>
+    <linearGradient id="accent"><stop stop-color="#65baff"/><stop offset="1" stop-color="#a396ff"/></linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#fade)"/>
-  <circle cx="945" cy="315" r="230" fill="none" stroke="#e3e2da" stroke-opacity=".5" stroke-width="2"/>
-  <ellipse cx="945" cy="315" rx="230" ry="130" fill="none" stroke="#edc54e" stroke-width="2" transform="rotate(-32 945 315)"/>
-  <circle cx="1023" cy="125" r="12" fill="#e64f35"/>
-  <path d="M945 275v80m-40-40h80m-68-28 56 56m0-56-56 56" stroke="#edc54e" stroke-width="8"/>
-  <text x="86" y="110" fill="#9fc7b8" font-family="monospace" font-size="18" letter-spacing="4">BHUWAN TEJA PONAKALA / PORTFOLIO</text>
-  <text x="82" y="303" fill="#e3e2da" font-family="Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="-5">AI &amp; DATA SCIENCE</text>
-  <text x="86" y="390" fill="#9fc7b8" font-family="Georgia, serif" font-size="72" font-style="italic">from signal to software.</text>
-  <text x="88" y="520" fill="#c3cac3" font-family="monospace" font-size="18" letter-spacing="3">PROJECTS · RESEARCH · CREDENTIALS</text>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="951" cy="311" r="386" fill="url(#glow)"/>
+  <g fill="none" stroke="#95b4df" stroke-opacity=".13">
+    <circle cx="927" cy="303" r="206"/><circle cx="927" cy="303" r="250"/>
+    <ellipse cx="927" cy="303" rx="310" ry="105" transform="rotate(-28 927 303)"/>
+    <ellipse cx="927" cy="303" rx="296" ry="127" transform="rotate(31 927 303)"/>
+  </g>
+  <g fill="#77c6ff">
+    <circle cx="720" cy="187" r="3"/><circle cx="785" cy="127" r="2"/><circle cx="1087" cy="193" r="3"/>
+    <circle cx="1155" cy="328" r="2"/><circle cx="808" cy="478" r="3"/><circle cx="1032" cy="506" r="2"/>
+    <circle cx="929" cy="98" r="2"/><circle cx="678" cy="348" r="2"/>
+  </g>
+  <text x="90" y="118" fill="#9caec4" font-family="Arial,sans-serif" font-size="19" letter-spacing="5">BHUVAN TEJA PONAKALA / AI + DATA SCIENCE</text>
+  <text x="86" y="300" fill="#f4f6fb" font-family="Arial,sans-serif" font-size="78" font-weight="600" letter-spacing="-4">I build AI that moves</text>
+  <text x="86" y="390" fill="url(#accent)" font-family="Arial,sans-serif" font-size="78" font-weight="600" letter-spacing="-4">from signal to useful.</text>
+  <line x1="92" y1="470" x2="560" y2="470" stroke="#8fa4bf" stroke-opacity=".4"/>
+  <text x="92" y="518" fill="#a8b5c7" font-family="Arial,sans-serif" font-size="19" letter-spacing="2">MACHINE LEARNING · DATA · SOFTWARE</text>
 </svg>

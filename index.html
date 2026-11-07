@@ -1,200 +1,254 @@
 <!doctype html>
-<html lang="en" data-type="software" data-radius="sharp" data-buttons="arrow">
+<html lang="en" data-type="software" data-site-kind="software">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
-  <meta name="theme-color" content="#161c1a">
-  <meta name="description" content="Bhuvan Teja Ponakala studies AI and data science at B.M.S. College of Engineering and builds practical software projects.">
-  <meta property="og:title" content="Bhuvan Teja Ponakala — AI & Data Science">
-  <meta property="og:description" content="Projects in artificial intelligence, data science, computer vision and software.">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="Bhuvan Teja Ponakala is an AI and data science engineering student building useful machine learning, data, and software projects in Bengaluru.">
+  <meta property="og:title" content="Bhuvan Teja Ponakala — AI, made useful">
+  <meta property="og:description" content="Applied AI, data systems, and software built for people to use.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/share-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Bhuvan Teja Ponakala — AI & Data Science Portfolio</title>
+  <title>Bhuvan Teja Ponakala — AI &amp; Data Science Portfolio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fresh.css">
-  <link rel="modulepreload" href="assets/moments/moments.js">
-  <link rel="modulepreload" href="assets/moments/lib.js">
-  <link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
-  <link rel="modulepreload" href="assets/moments/iris-opens/moment.js">
-  <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+  <script>
+    try {
+      if (!sessionStorage.getItem("btp-intro-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("intro-active");
+      }
+    } catch (_) {}
+  </script>
 </head>
 <body>
-  <!-- software / AI and data science portfolio / dark-green-bone / Manrope and JetBrains Mono / split hero / nav-centre / footer-statement / close-word / surface-pairs / arrow buttons / ring mark -->
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="intro-loader" id="intro-loader" aria-hidden="true">
-    <span class="loader-label">A SMALL INTRODUCTION / BTP 2026</span>
-    <svg class="loader-name" viewBox="0 0 1100 200" role="presentation">
+
+  <div class="site-loader" id="site-loader" aria-hidden="true">
+    <svg class="loader-emblem" viewBox="0 0 120 120" role="presentation">
       <defs>
-        <linearGradient id="name-trace" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#9fc7b8"></stop>
-          <stop offset="100%" stop-color="#edc54e"></stop>
+        <linearGradient id="loader-gradient" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#63b9ff"/>
+          <stop offset="1" stop-color="#a58aff"/>
         </linearGradient>
       </defs>
-      <text id="name-trace-text" x="50%" y="53%" text-anchor="middle" dominant-baseline="middle">BHUVAN TEJA</text>
+      <circle class="loader-orbit" cx="60" cy="60" r="46"/>
+      <path class="loader-glyph" d="M44 28v64h23c12 0 20-7 20-18 0-10-7-17-18-17H44m17 0c11 0 18-6 18-15 0-9-7-14-18-14H44"/>
+      <circle class="loader-node" cx="94" cy="30" r="4"/>
     </svg>
-    <span class="loader-label">DATA / INTELLIGENCE / SOFTWARE</span>
+    <p>BHUVAN TEJA <span>/</span> 2026</p>
+    <small>DRAWING A CLEARER PICTURE</small>
   </div>
-  <div class="cursor-orbit" id="cursor-orbit" aria-hidden="true"><span></span></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Bhuvan Teja Ponakala, back to top">
-      <span class="brand-ring">B</span>
-      <span class="brand-copy"><strong>Bhuvan Teja</strong><small>AI / DATA SCIENCE</small></span>
+    <a class="brand" href="#top" aria-label="Bhuvan Teja Ponakala — home">
+      <span class="brand-mark" aria-hidden="true">B<span>.</span></span>
+      <span class="brand-name">Bhuvan Teja<small>AI / DATA SCIENCE</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#projects">Projects <sup>14</sup></a>
-      <a href="#about">Profile</a>
-      <a href="#credentials">Credentials <sup>27</sup></a>
-      <a class="nav-resume" href="resume.html">View resume <span aria-hidden="true">↗</span></a>
+      <a href="#work">Work <span>17</span></a>
+      <a href="#about">About</a>
+      <a href="#credentials">Credentials <span>27</span></a>
+      <a href="#contact">Contact</a>
+      <a class="nav-resume" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
     </nav>
-    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
-      <span>Menu</span><i aria-hidden="true"></i>
+    <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span>
     </button>
   </header>
 
   <main id="main">
-    <section class="hero" id="top" data-enter>
-      <div class="hero-inner">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <canvas class="hero-field" id="hero-field" aria-hidden="true"></canvas>
+      <div class="hero-grid page-wrap">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> Artificial intelligence &amp; data science</p>
-          <h1>I turn data<br>into <em>useful tools.</em></h1>
-          <p class="hero-fact">Bhuvan Teja Ponakala · B.E. Artificial Intelligence &amp; Data Science · B.M.S. College of Engineering · Bengaluru · 2024–2028</p>
-          <p class="hero-lead">A student engineer building practical software with machine learning, computer vision and generative AI.</p>
+          <p class="eyebrow"><span class="status-light" aria-hidden="true"></span> AI + DATA SCIENCE <i>·</i> BENGALURU, INDIA</p>
+          <h1 id="hero-title">I build AI that moves from <em>signal</em> to something useful.</h1>
+          <p class="hero-intro">I’m Bhuvan Teja Ponakala — an engineering student exploring machine learning, data, and the craft of turning ideas into working software.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↘</span></a>
-            <a class="button button-secondary" href="resume.html">View resume <span aria-hidden="true">↗</span></a>
+            <a class="button button-bright" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
+            <a class="button button-glass" href="resume.html">Open resume <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-index">PYTHON <span>·</span> DATA <span>·</span> ML <span>·</span> SOFTWARE</p>
+          <div class="hero-facts">
+            <span><b>01</b> B.E. AI &amp; Data Science</span>
+            <span><b>02</b> B.M.S. College of Engineering</span>
+            <span><b>03</b> Class of 2028</span>
+          </div>
         </div>
 
-        <div class="poster" id="signal-poster" role="img" aria-label="A data intelligence diagram with a moving signal point, orbit paths and a grid">
-          <div class="poster-grid" aria-hidden="true"></div>
-          <svg class="poster-orbits" viewBox="0 0 520 720" aria-hidden="true">
-            <ellipse class="orbit orbit-one" cx="260" cy="318" rx="177" ry="108"></ellipse>
-            <ellipse class="orbit orbit-two" cx="260" cy="318" rx="188" ry="106"></ellipse>
-            <circle class="orbit-node" id="orbit-node" cx="260" cy="190" r="10"></circle>
-            <path class="poster-star" d="M260 278v80M220 318h80M232 290l56 56M288 290l-56 56"></path>
-          </svg>
-          <div class="poster-heading"><span>DATA</span><span>INTELLIGENCE</span></div>
-          <div class="poster-footer"><b>FIG. 01</b><span>FROM SIGNAL TO SOMETHING USEFUL</span><span>BTP / 26</span></div>
+        <div class="hero-stage" aria-label="Portrait and dimensional data sculpture">
+          <div class="stage-halo" aria-hidden="true"></div>
+          <div class="portrait-frame">
+            <img src="assets/bhuvan-blue-suit.png" alt="Portrait of Bhuvan Teja Ponakala" width="1024" height="1536" fetchpriority="high">
+          </div>
+          <div class="portrait-edge" aria-hidden="true"></div>
+          <div class="floating-token">
+            <div class="token-topline"><span class="token-mark">BTP</span><span>BUILD / 2026</span></div>
+            <div class="token-divider"></div>
+            <p>ProofPass</p>
+            <span class="token-caption">AI × ZERO-KNOWLEDGE IDENTITY</span>
+            <div class="token-footer"><span class="token-check">✓</span> SPECIAL RECOGNITION</div>
+          </div>
+          <div class="stage-coordinate coordinate-top">12°58' N <span>·</span> BENGALURU</div>
+          <div class="stage-coordinate coordinate-bottom">SIGNAL / SYSTEM / SOFTWARE</div>
+          <div class="stage-index"><span>PORTRAIT STUDY</span><b>01 — 04</b></div>
         </div>
       </div>
-      <div class="hero-foot"><span>BENGALURU, INDIA</span><a href="#about">Scroll to profile <span aria-hidden="true">↓</span></a><span>01 / 05</span></div>
-    </section>
-
-    <section class="about section-light" id="about">
-      <div class="section-wrap">
-        <div class="section-heading">
-          <h2>Profile and education</h2>
-          <p class="section-number">01 / ABOUT</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-copy">
-            <p class="statement mo-wh__text" data-moment="word-highlight">I turn data into decisions, then build the <strong>software</strong> that helps people act on them.</p>
-            <p class="about-lead">B.E. Artificial Intelligence &amp; Data Science student at B.M.S. College of Engineering in Bengaluru, studying from 2024 to 2028.</p>
-            <div class="skill-lines" aria-label="Areas of work">
-              <div><span>01</span><b>Data</b><small>Python · SQL · EDA · Visualization</small></div>
-              <div><span>02</span><b>Intelligence</b><small>Machine learning · Computer vision · GenAI</small></div>
-              <div><span>03</span><b>Engineering</b><small>C / C++ · Java · JavaScript · React</small></div>
-            </div>
-          </div>
-          <div class="about-card">
-            <img src="assets/bhuvan-blue-suit.png" alt="Portrait of Bhuvan Teja Ponakala" loading="lazy">
-            <div class="about-facts">
-              <div><span>EDUCATION</span><b>B.M.S. College of Engineering</b><small>B.E. · AI &amp; Data Science · 2024–2028</small></div>
-              <div><span>PROJECT EXPERIENCE</span><b>Flyrank AI</b><small>Machine learning · Search and ranking</small></div>
-              <a href="resume.html">Read the full resume <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </div>
-        <article class="achievement-feature" aria-labelledby="achievement-title">
-          <div class="achievement-mark" aria-hidden="true">✳</div>
-          <div class="achievement-copy">
-            <p class="achievement-kicker">TEAM MIB · BMSCE, BENGALURU · 2026</p>
-            <h3 id="achievement-title">Special Recognition Prize</h3>
-            <p>Our team, MIB, earned this recognition at the MST Blockchain × Newrro 24-Hour Buildathon for ProofPass, an AI and zero-knowledge skill passport built to make digital credentials easier to verify.</p>
-            <div class="achievement-links">
-              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7515700595832590336/" target="_blank" rel="noopener noreferrer">LinkedIn post <span aria-hidden="true">↗</span></a>
-              <a href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">ProofPass repository <span aria-hidden="true">↗</span></a>
-              <a href="https://lnkd.in/gxMMHVp4" target="_blank" rel="noopener noreferrer">Project demo <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-          <a class="achievement-recap" href="https://medium.com/@MSTblockchainHQ/mst-blockchain-launches-the-buildathon-series-7a0741dcb31d" target="_blank" rel="noopener noreferrer">Buildathon recap <span aria-hidden="true">↗</span></a>
-        </article>
+      <div class="hero-bottom page-wrap">
+        <span>BUILDING WITH PURPOSE, LEARNING IN PUBLIC</span>
+        <a href="#about">Scroll to explore <i aria-hidden="true">↓</i></a>
+        <span class="hero-scroll-mark" aria-hidden="true">✳</span>
       </div>
     </section>
 
-    <section class="projects section-dark" id="projects" data-moment="iris-opens" data-moment-opts='{"from":"inverse"}'>
-      <div class="section-wrap">
-        <div class="section-heading">
-          <h2>Selected projects</h2>
-          <p class="section-number">02 / WORK INDEX <span>14 SELECTED PROJECTS</span></p>
+    <section class="about section-paper" id="about" aria-labelledby="about-title">
+      <div class="page-wrap">
+        <div class="section-kicker"><span>01 / PROFILE</span><span>LEARNING BY BUILDING</span></div>
+        <div class="about-layout">
+          <div class="about-statement">
+            <p class="eyebrow eyebrow-dark">A PRACTICAL POINT OF VIEW</p>
+            <h2 id="about-title">Curiosity is the starting point. <em>Useful work</em> is the goal.</h2>
+            <p>I’m studying Artificial Intelligence and Data Science at B.M.S. College of Engineering. My work moves between applied ML, data-heavy tools, and small product experiences that make a technical idea easier to use.</p>
+            <a class="text-link" href="resume.html">Read my full resume <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="about-details">
+            <div class="detail-card detail-education">
+              <span class="detail-index">01</span>
+              <div><small>EDUCATION</small><h3>B.E. Artificial Intelligence &amp; Data Science</h3><p>B.M.S. College of Engineering · Bengaluru · 2024–2028</p></div>
+              <span class="detail-icon" aria-hidden="true">⌘</span>
+            </div>
+            <div class="detail-card detail-experience">
+              <span class="detail-index">02</span>
+              <div><small>EXPERIENCE</small><h3>Flyrank AI</h3><p>Machine learning internship · Search intelligence and ranking</p></div>
+              <span class="detail-icon" aria-hidden="true">↗</span>
+            </div>
+            <div class="capability-list">
+              <div><span>01 / DATA</span><p>Python · SQL · exploratory analysis · visualization</p></div>
+              <div><span>02 / INTELLIGENCE</span><p>Machine learning · computer vision · GenAI · LLMs</p></div>
+              <div><span>03 / ENGINEERING</span><p>C · C++ · Java · JavaScript · React · web</p></div>
+            </div>
+          </div>
         </div>
-        <p class="section-intro">Choose a project to inspect its brief and open its repository.</p>
-        <div class="project-workbench">
-          <div class="project-list" id="project-list" aria-label="Project list"></div>
-          <article class="project-detail" id="project-detail" aria-live="polite"></article>
-        </div>
-        <a class="all-repos" href="https://github.com/bhuvanteja-0722?tab=repositories" target="_blank" rel="noopener noreferrer">View all GitHub repositories <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
-    <section class="credentials section-light" id="credentials">
-      <div class="section-wrap">
-        <div class="section-heading">
-          <h2>Certificates and credentials</h2>
-          <p class="section-number">03 / LEARNING ARCHIVE <span id="cert-count">27 RECORDS</span></p>
+    <section class="recognition" id="recognition" aria-labelledby="recognition-title">
+      <div class="recognition-glow" aria-hidden="true"></div>
+      <div class="page-wrap recognition-layout">
+        <div class="recognition-copy">
+          <div class="section-kicker section-kicker-light"><span>02 / RECOGNITION</span><span>TEAM MIB · 2026</span></div>
+          <p class="eyebrow"><span class="award-star" aria-hidden="true">✳</span> MST BLOCKCHAIN × NEWRRO · 24-HOUR BUILDATHON</p>
+          <h2 id="recognition-title">Special<br>Recognition<br><em>Prize.</em></h2>
+          <p class="recognition-lead">A 24-hour build, a team of builders, and a better way to carry proof of what you can do.</p>
+          <p class="recognition-body">Team MIB created ProofPass, an AI and zero-knowledge skill passport designed to make digital credentials easier to verify. The project received the Special Recognition Prize at the MST Blockchain × Newrro Buildathon.</p>
+          <div class="recognition-links">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7515700595832590336/" target="_blank" rel="noopener noreferrer">Read my LinkedIn post <span aria-hidden="true">↗</span></a>
+            <a href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">Explore ProofPass <span aria-hidden="true">↗</span></a>
+            <a href="https://lnkd.in/gxMMHVp4" target="_blank" rel="noopener noreferrer">Open project demo <span aria-hidden="true">↗</span></a>
+            <a href="https://medium.com/@MSTblockchainHQ/mst-blockchain-launches-the-buildathon-series-7a0741dcb31d" target="_blank" rel="noopener noreferrer">Buildathon recap <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <p class="section-intro">Browse all 27 certificate scans. Open any image at full size, then use its verification link to check the credential.</p>
-        <div class="credential-filters" id="cert-filters" role="group" aria-label="Filter certificates">
-          <button class="selected" type="button" data-filter="all" aria-pressed="true">All <sup>27</sup></button>
-          <button type="button" data-filter="ai" aria-pressed="false">AI / GenAI</button>
+        <div class="award-stage" aria-label="Dimensional ProofPass credential card illustration">
+          <div class="award-orbit award-orbit-one" aria-hidden="true"></div>
+          <div class="award-orbit award-orbit-two" aria-hidden="true"></div>
+          <div class="award-glass">
+            <div class="glass-top"><span>PROOFPASS <b>01 / 24H</b></span><span class="glass-shield">✓</span></div>
+            <div class="glass-profile">
+              <div class="glass-avatar">MIB</div>
+              <div><small>VERIFIABLE SKILL PASSPORT</small><h3>Proof of capability</h3><p>AI + zero-knowledge proofs</p></div>
+            </div>
+            <div class="glass-seal"><span></span><b>SKILL<br>VERIFIED</b><i aria-hidden="true">✳</i></div>
+            <div class="glass-bottom"><span>TEAM MIB</span><span>MST × NEWRRO</span><span>2026</span></div>
+          </div>
+          <div class="award-note award-note-one"><span class="note-dot"></span> SPECIAL RECOGNITION</div>
+          <div class="award-note award-note-two">A TRUST LAYER FOR DIGITAL CREDENTIALS</div>
+          <div class="award-coordinate">BENGALURU <span>·</span> BUILDATHON SERIES</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-surface" id="work" aria-labelledby="work-title">
+      <div class="page-wrap">
+        <div class="section-kicker section-kicker-light"><span>03 / PROJECT INDEX</span><span id="project-total">17 BUILDS</span></div>
+        <div class="section-intro-row">
+          <div><p class="eyebrow eyebrow-light">THOUGHT THROUGH. BUILT OUT.</p><h2 id="work-title">Selected <em>work.</em></h2></div>
+          <p>Projects across applied AI, data, software, and systems. Choose a build to see its brief and open its source.</p>
+        </div>
+        <div class="workbench">
+          <div class="work-list-wrap">
+            <div class="work-list-heading"><span>PROJECTS</span><span>01 — 17</span></div>
+            <div class="project-list" id="project-list" role="group" aria-label="Choose a project"></div>
+          </div>
+          <article class="project-panel" id="project-detail" aria-live="polite"></article>
+        </div>
+        <div class="work-bottom">
+          <span>MORE EXPERIMENTS, NOTES AND SOURCE</span>
+          <a href="https://github.com/bhuvanteja-0722?tab=repositories" target="_blank" rel="noopener noreferrer">Browse all GitHub repositories <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="credentials section-paper" id="credentials" aria-labelledby="credentials-title">
+      <div class="page-wrap">
+        <div class="section-kicker"><span>04 / LEARNING ARCHIVE</span><span>ALL CERTIFICATES · FULL SCAN</span></div>
+        <div class="section-intro-row credential-intro">
+          <div><p class="eyebrow eyebrow-dark">EVIDENCE OF THE WORK</p><h2 id="credentials-title">Learning, <em>documented.</em></h2></div>
+          <p>Every scan is framed in full. Open a certificate to inspect it, then follow its issuer link where online verification is available.</p>
+        </div>
+        <div class="credential-filters" id="cert-filters" role="group" aria-label="Filter credentials">
+          <button class="selected" type="button" data-filter="all" aria-pressed="true">All <span>27</span></button>
+          <button type="button" data-filter="ai" aria-pressed="false">AI &amp; GenAI</button>
           <button type="button" data-filter="data" aria-pressed="false">Data</button>
           <button type="button" data-filter="programming" aria-pressed="false">Programming</button>
           <button type="button" data-filter="development" aria-pressed="false">Development</button>
           <button type="button" data-filter="hackathon" aria-pressed="false">Hackathons</button>
-          <button type="button" data-filter="anthropic" aria-pressed="false">Anthropic</button>
         </div>
+        <p class="credential-count" id="cert-count" aria-live="polite">27 CERTIFICATES</p>
         <div class="certificate-grid" id="certificate-grid"></div>
       </div>
     </section>
 
-    <section class="contact section-dark" id="contact">
-      <div class="section-wrap contact-wrap">
-        <div class="section-heading">
-          <h2>Contact and profiles</h2>
-          <p class="section-number">04 / NEXT</p>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="page-wrap">
+        <div class="section-kicker section-kicker-light"><span>05 / SAY HELLO</span><span>OPEN TO GOOD QUESTIONS</span></div>
+        <div class="contact-layout">
+          <div><p class="eyebrow eyebrow-light">LET’S MAKE SOMETHING MATTER</p><h2 id="contact-title">The next good idea starts with <em>a conversation.</em></h2></div>
+          <div class="contact-actions">
+            <a class="contact-email" href="mailto:bhuvanteja.ad24@bmsce.ac.in">bhuvanteja.ad24@bmsce.ac.in <span aria-hidden="true">↗</span></a>
+            <a class="button button-bright" href="resume.html">Open my resume <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div class="contact-main">
-          <p>Have a project or role in mind?</p>
-          <a class="contact-email" href="mailto:bhuvanteja.ad24@bmsce.ac.in">Email Bhuvan <span aria-hidden="true">↗</span></a>
-          <a class="button button-primary" href="resume.html">View resume <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="social-links" aria-label="Social profiles">
-          <a href="https://www.linkedin.com/in/bhuvanteja-ponakala-696206330/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
-          <a href="https://github.com/bhuvanteja-0722" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
-          <a href="https://www.kaggle.com/bhuvantejaponakala22" target="_blank" rel="noopener noreferrer">Kaggle <span>↗</span></a>
-          <a href="https://leetcode.com/u/bhuvan_teja_0722/" target="_blank" rel="noopener noreferrer">LeetCode <span>↗</span></a>
-          <a href="https://www.hackerrank.com/profile/bhuvanteja_ad24" target="_blank" rel="noopener noreferrer">HackerRank <span>↗</span></a>
-          <a href="https://unstop.com/u/bhuvapon96449" target="_blank" rel="noopener noreferrer">Unstop <span>↗</span></a>
-          <a href="https://x.com/bhuvanteja_0722" target="_blank" rel="noopener noreferrer">X <span>↗</span></a>
-          <a href="https://www.instagram.com/bhuvan_teja_0722/" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
-        </div>
+        <div class="social-links" id="social-links" aria-label="Social profiles"></div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
-    <a class="footer-mark" href="#top">BTP <span>2026</span></a>
-    <span>BHUVAN TEJA PONAKALA · AI / DATA SCIENCE</span>
-    <a href="resume.html">View resume ↗</a>
+    <a class="footer-brand" href="#top">BTP<span>.</span></a>
+    <span>BHUVAN TEJA PONAKALA · AI / DATA SCIENCE · BENGALURU</span>
+    <a href="#top">Back to top ↑</a>
   </footer>
+
+  <dialog class="certificate-dialog" id="certificate-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar">
+      <span class="dialog-index">CERTIFICATE / FULL SCAN</span>
+      <button class="dialog-close" type="button" aria-label="Close certificate">×</button>
+    </div>
+    <figure class="dialog-figure">
+      <img id="dialog-image" src="" alt="">
+      <figcaption><span id="dialog-issuer"></span><strong id="dialog-title"></strong></figcaption>
+    </figure>
+    <div class="dialog-actions" id="dialog-actions"></div>
+  </dialog>
+
+  <script src="portfolio-data.js" defer></script>
   <script src="script.js" defer></script>
-  <script type="module" src="assets/moments/moments.js"></script>
 </body>
 </html>
