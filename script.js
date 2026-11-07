@@ -373,7 +373,7 @@
         for (var r = 0; r < 2; r += 1) {
           context.beginPath();
           context.ellipse(cx, cy, radius * (1.06 + r * 0.08), radius * (0.34 + r * 0.07), r ? 0.48 : -0.38, 0, Math.PI * 2);
-          context.strokeStyle = r ? "rgba(141,130,245,.12)" : "rgba(112,188,255,.16)";
+          context.strokeStyle = r ? "rgba(245,189,130,.12)" : "rgba(255,112,128,.16)";
           context.lineWidth = 1;
           context.stroke();
         }
@@ -400,10 +400,10 @@
           context.beginPath();
           context.arc(px, py, size, 0, Math.PI * 2);
           context.fillStyle = tint
-            ? "rgba(243,161,127," + (alpha * 0.8) + ")"
+            ? "rgba(243,189,115," + (alpha * 0.8) + ")"
             : (p % 7 === 0
-              ? "rgba(166,151,255," + alpha + ")"
-              : "rgba(112,190,255," + alpha + ")");
+              ? "rgba(243,189,115," + alpha + ")"
+              : "rgba(255,128,100," + alpha + ")");
           context.fill();
         }
         context.restore();
