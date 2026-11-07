@@ -145,6 +145,11 @@
     var scene = scenes[project.visual] || scenes.proof;
     var tags = scene.tags.map(function (tag) { return "<span>" + esc(tag) + "</span>"; }).join("");
     var visual = esc(project.visual || "proof");
+    var sourceLabel = /github\.com\//i.test(project.url || "") ? "Open repository" : "View project details";
+    var projectActions = project.liveUrl
+      ? '<a class="project-open" href="' + esc(project.liveUrl) + '" target="_blank" rel="noopener noreferrer">Open live project <span aria-hidden="true">↗</span></a>' +
+        '<a class="project-repository" href="' + esc(project.url) + '" target="_blank" rel="noopener noreferrer">Source repository ↗</a>'
+      : '<a class="project-open" href="' + esc(project.url) + '" target="_blank" rel="noopener noreferrer">' + esc(sourceLabel) + ' <span aria-hidden="true">↗</span></a>';
     detail.innerHTML =
       '<div class="project-panel-inner">' +
         '<div class="preview-frame">' +
@@ -166,7 +171,7 @@
         '<div class="project-description">' +
           '<p class="project-meta">' + String(index + 1).padStart(2, "0") + ' / ' + String(projects.length).padStart(2, "0") + ' &nbsp;·&nbsp; ' + esc(project.meta) + '</p>' +
           '<h3>' + esc(project.title) + '</h3>' +
-          '<a class="project-open" href="' + esc(project.url) + '" target="_blank" rel="noopener noreferrer">Open repository <span aria-hidden="true">↗</span></a>' +
+          '<div class="project-actions">' + projectActions + '</div>' +
           '<p>' + esc(project.desc) + '</p>' +
         '</div>' +
       '</div>';
@@ -174,10 +179,14 @@
 
   if (list && projects.length) {
     list.innerHTML = projects.map(function (project, index) {
+      var liveLink = project.liveUrl
+        ? '<a class="project-live-link" href="' + esc(project.liveUrl) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + esc(project.title) + ' live project">LIVE <span aria-hidden="true">↗</span></a>'
+        : "";
       return '<div class="project-row">' +
         '<button class="project-select' + (index === 0 ? " is-active" : "") + '" type="button" aria-pressed="' + (index === 0) + '">' +
           '<span>' + String(index + 1).padStart(2, "0") + '</span><strong>' + esc(project.title) + '</strong>' +
         '</button>' +
+        liveLink +
         '<a class="project-source" href="' + esc(project.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + esc(project.title) + ' repository">↗</a>' +
       '</div>';
     }).join("");
