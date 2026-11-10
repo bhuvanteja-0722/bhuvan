@@ -337,6 +337,12 @@ export function WorksWheel({
                       alt={item.imageAlt || `${item.title} project image`}
                       draggable={false}
                       className="size-full object-cover"
+                      onError={(event) => {
+                        const image = event.currentTarget;
+                        if (image.dataset.fallback === "true") return;
+                        image.dataset.fallback = "true";
+                        image.src = "/assets/project-art/data-network.jpg";
+                      }}
                     />
                     {action && item.href ? (
                       <span className="bg-background/80 text-foreground pointer-events-none absolute right-3 bottom-3 flex translate-y-1 items-center gap-1 rounded-full px-2.5 py-1 text-[0.7rem] opacity-0 backdrop-blur-sm transition group-hover:translate-y-0 group-hover:opacity-100">

@@ -13,3 +13,9 @@ services:
       - path: /*
         name: Referrer-Policy
         value: strict-origin-when-cross-origin
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
+      - path: /portfolio-data.js
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
