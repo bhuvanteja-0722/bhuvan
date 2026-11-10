@@ -614,7 +614,7 @@ img { display: block; max-width: 100%; }
 .works-wheel-shell:focus-within { border-color: rgba(255,105,120,.55); }
 .hero-name-root :focus-visible, .works-wheel :focus-visible { outline-color: var(--accent); }
 
-.cursor-flow { position: fixed; z-index: 700; top: -100px; left: -100px; width: 104px; height: 104px; pointer-events: none; opacity: 0; visibility: hidden; transform: translate(-50%,-50%) scale(.86); filter: drop-shadow(0 0 12px rgba(245,34,58,.22)); transition: opacity .16s ease, visibility .16s ease, transform .16s cubic-bezier(.22,1,.36,1); mix-blend-mode: screen; }
+.cursor-flow { position: fixed; z-index: 700; top: -400px; left: -400px; width: 380px; height: 380px; pointer-events: none; opacity: 0; visibility: hidden; transform: translate(-50%,-50%) scale(.82); filter: drop-shadow(0 0 16px rgba(245,34,58,.18)); transition: opacity .2s ease, visibility .2s ease, transform .24s cubic-bezier(.22,1,.36,1); mix-blend-mode: screen; }
 .cursor-flow.is-visible { opacity: 1; visibility: visible; transform: translate(-50%,-50%) scale(1); }
 .cursor-flow.is-clicking { transform: translate(-50%,-50%) scale(1.12); }
 .intro-active .cursor-flow, .intro-terminal .cursor-flow, .intro-blue .cursor-flow, .intro-blank .cursor-flow { opacity: 0; visibility: hidden; }
