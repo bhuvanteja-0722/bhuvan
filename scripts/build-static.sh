@@ -13,7 +13,7 @@ test -f "$root_dir/assets/app.css"
 rm -rf "$publish_dir"
 mkdir -p "$publish_dir/assets/certificates/cropped" "$publish_dir/assets/project-art" "$publish_dir/src/shaders"
 cp "$root_dir/index.html" "$root_dir/resume.html" "$root_dir/fresh.css" \
-  "$root_dir/intro.js" "$root_dir/cursor-flow.js" "$root_dir/script.js" \
+  "$root_dir/intro.js" "$root_dir/script.js" \
   "$root_dir/portfolio-data.js" "$publish_dir/"
 cp "$root_dir/assets/favicon.svg" "$root_dir/assets/share-card.svg" \
   "$root_dir/assets/bhuvan-blue-suit.png" "$root_dir/assets/crt-mount.js" \

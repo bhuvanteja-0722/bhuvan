@@ -330,6 +330,7 @@
     skipTimers.forEach(function (id) { window.clearTimeout(id); });
     skipTimers = [];
     root.classList.remove("intro-active", "intro-terminal", "intro-blue", "intro-blank", "intro-tour", "intro-return");
+    if (window.BTP_UPLINK) { window.BTP_UPLINK.unmount(); window.BTP_UPLINK = null; }
     if (soundtrackAudio) { soundtrackAudio.pause(); soundtrackAudio.currentTime = 0; }
     if (soundtrackLabel) soundtrackLabel.textContent = "Intro music";
     if (soundtrackPanel) soundtrackPanel.hidden = true;
@@ -456,6 +457,7 @@
 
   function startTerminal() {
     if (!root.classList.contains("intro-active")) return;
+    if (window.BTP_UPLINK) { window.BTP_UPLINK.unmount(); window.BTP_UPLINK = null; }
     root.classList.remove("intro-active");
     if (crtFailed || !window.BTP_CRT) {
       root.classList.add("intro-blank");
@@ -479,7 +481,7 @@
     introPrepared = true;
     prepareTargets();
     makeAgents();
-    var remaining = Math.max(0, 1380 - (Date.now() - introStartedAt));
+    var remaining = Math.max(0, 9000 - (Date.now() - introStartedAt));
     later(startTerminal, remaining);
   }
 

@@ -5,6 +5,8 @@
   var projects = data.projects || [];
   var certificates = data.certs || [];
   var byId = function (id) { return document.getElementById(id); };
+  var credentialNavCount = byId("credential-nav-count");
+  if (credentialNavCount) credentialNavCount.textContent = String(certificates.length);
   var esc = function (value) {
     return String(value == null ? "" : value)
       .replace(/&/g, "&amp;")

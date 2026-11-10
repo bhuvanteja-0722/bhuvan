@@ -20,9 +20,8 @@ type Particle = {
 };
 
 /**
- * A lightweight, red phosphor particle field for the portfolio hero.
- * The existing hero copy and actions remain the foreground; this canvas adds
- * the pointer-reactive, connected-particle treatment from the supplied brief.
+ * A lightweight, red phosphor particle field across the portfolio.
+ * The pointer-reactive connected points remain behind the page content.
  */
 export function AetherFlowHero({
   className,
@@ -40,7 +39,7 @@ export function AetherFlowHero({
       "(prefers-reduced-motion: reduce)",
     ).matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
-    const mouse = { x: -1000, y: -1000, radius: 170 };
+    const mouse = { x: -1000, y: -1000, radius: 285 };
     let particles: Particle[] = [];
     let width = 1;
     let height = 1;
@@ -49,9 +48,9 @@ export function AetherFlowHero({
 
     const createParticles = () => {
       const area = width * height;
-      const base = Math.round(area / 23000);
-      const cap = width < 600 ? 54 : 96;
-      const count = Math.max(28, Math.min(cap, Math.round(base * particleDensity)));
+      const base = Math.round(area / 8500);
+      const cap = width < 600 ? 84 : 260;
+      const count = Math.max(42, Math.min(cap, Math.round(base * particleDensity)));
       particles = Array.from({ length: count }, () => {
         const angle = Math.random() * Math.PI * 2;
         const speed = 0.12 + Math.random() * 0.22;
@@ -60,7 +59,7 @@ export function AetherFlowHero({
           y: Math.random() * height,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: 0.8 + Math.random() * 1.5,
+          radius: 1.35 + Math.random() * 2,
           phase: Math.random() * Math.PI * 2,
         };
       });
@@ -80,7 +79,7 @@ export function AetherFlowHero({
 
     const draw = (time: number) => {
       ctx.clearRect(0, 0, width, height);
-      const connection = Math.min(188, Math.max(120, width * 0.15));
+    const connection = Math.min(168, Math.max(112, width * 0.13));
       const maxDistance = connection * connection;
 
       for (let i = 0; i < particles.length; i += 1) {
@@ -95,7 +94,7 @@ export function AetherFlowHero({
           const dy = particle.y - mouse.y;
           const distance = Math.hypot(dx, dy);
           if (finePointer && distance > 0 && distance < mouse.radius) {
-            const force = ((mouse.radius - distance) / mouse.radius) * 1.2;
+            const force = ((mouse.radius - distance) / mouse.radius) * 5.2;
             particle.x += (dx / distance) * force;
             particle.y += (dy / distance) * force;
           }
@@ -111,28 +110,43 @@ export function AetherFlowHero({
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(neighbor.x, neighbor.y);
-          ctx.strokeStyle = `rgba(255, 74, 94, ${proximity * 0.18})`;
-          ctx.lineWidth = 0.7;
+          const pointerProximity = Math.max(0, 1 - Math.min(
+            Math.hypot(mouse.x - particle.x, mouse.y - particle.y),
+            Math.hypot(mouse.x - neighbor.x, mouse.y - neighbor.y),
+          ) / mouse.radius);
+          const nearPointer = pointerProximity > 0;
+          ctx.strokeStyle = nearPointer
+            ? `rgba(255, 175, 185, ${proximity * (0.56 + pointerProximity * 0.34)})`
+            : `rgba(255, 105, 122, ${proximity * 0.36})`;
+          ctx.lineWidth = nearPointer ? 1.05 + pointerProximity * 0.75 : 0.95;
           ctx.stroke();
         }
 
         const shimmer = reducedMotion
           ? 1
-          : 0.72 + Math.sin(time * 0.001 + particle.phase) * 0.18;
+          : 0.9 + Math.sin(time * 0.001 + particle.phase) * 0.08;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, ${88 + (i % 4) * 13}, ${104 + (i % 3) * 10}, ${shimmer})`;
-        ctx.shadowColor = "rgba(245, 34, 58, .42)";
-        ctx.shadowBlur = 12;
+        const pointerDistance = Math.hypot(mouse.x - particle.x, mouse.y - particle.y);
+        const pointerGlow = finePointer
+          ? Math.max(0, 1 - pointerDistance / mouse.radius)
+          : 0;
+        ctx.arc(particle.x, particle.y, particle.radius + pointerGlow * 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, ${88 + (i % 4) * 13}, ${104 + (i % 3) * 10}, ${Math.min(1, shimmer + pointerGlow * 0.2)})`;
+        ctx.shadowColor = pointerGlow > 0.05 ? "rgba(255, 101, 125, .95)" : "rgba(245, 34, 58, .42)";
+        ctx.shadowBlur = 18 + pointerGlow * 34;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
     };
 
+    let lastDraw = 0;
     const animate = (time: number) => {
       frame = 0;
       if (document.visibilityState !== "visible" || !inView) return;
-      draw(time);
+      if (time - lastDraw >= 24) {
+        draw(time);
+        lastDraw = time;
+      }
       if (!reducedMotion) frame = window.requestAnimationFrame(animate);
     };
 

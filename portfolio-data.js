@@ -1,5 +1,12 @@
 const certs = [
   {
+    title: 'MST Blockchain × Newrro 24-Hour Buildathon 2026 — Winners Certificate',
+    issuer: 'MST Blockchain × Newrro · Team MIB',
+    cat: 'hackathon',
+    img: 'mst-blockchain-buildathon-winners-2026.png',
+    url: 'https://lnkd.in/p/g9a5DKn2'
+  },
+  {
     title: 'Codefest — Nationwide Coding Hackathon 2026',
     issuer: 'Unstop',
     cat: 'hackathon',
@@ -213,6 +220,22 @@ const certs = [
     cat: 'anthropic',
     img: 'ai-fluency-students.png',
     url: null
+  },
+
+  {
+    title: 'Ethics in Engineering Practice',
+    issuer: 'NPTEL · IIT Kharagpur',
+    cat: 'development',
+    img: 'nptel-ethics-in-engineering-practice-2026.png',
+    url: 'https://nptel.ac.in/noc/E_Certificate/NOC26MG42S155020696704431503'
+  },
+
+  {
+    title: 'Research Methodology',
+    issuer: 'NPTEL · IIT Madras',
+    cat: 'research',
+    img: 'nptel-research-methodology-2026.png',
+    url: 'https://nptel.ac.in/noc/E_Certificate/NOC26GE79S352100455'
   }
 ];
 

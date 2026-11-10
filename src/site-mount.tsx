@@ -2,6 +2,9 @@ import { createRoot } from "react-dom/client";
 import AetherFlowHero from "../components/ui/aether-flow-hero";
 import PathDrawingPortfolioHero from "../components/ui/path-drawing-portfolio-hero";
 import WorksWheel from "../components/ui/works-wheel";
+import { AshenPress } from "./shaders/ashen-press/AshenPress";
+import { GlassAiButton } from "./shaders/glass-ai-button/GlassAiButton";
+import { UplinkLoader } from "./shaders/uplink-loader/UplinkLoader";
 
 type Project = {
   title: string;
@@ -17,6 +20,7 @@ type Project = {
 declare global {
   interface Window {
     PORTFOLIO_DATA?: { projects?: Project[] };
+    BTP_UPLINK?: { unmount: () => void };
   }
 }
 
@@ -35,9 +39,34 @@ if (nameRoot) {
   );
 }
 
-const aetherRoot = document.getElementById("hero-aether-root");
+const aetherRoot = document.getElementById("site-aether-root");
 if (aetherRoot) {
-  createRoot(aetherRoot).render(<AetherFlowHero particleDensity={0.82} />);
+  createRoot(aetherRoot).render(
+    <AetherFlowHero className="site-aether-field" particleDensity={1.65} />,
+  );
+}
+
+const credentialPressRoot = document.getElementById("credential-press-root");
+if (credentialPressRoot) {
+  createRoot(credentialPressRoot).render(
+    <AshenPress className="credential-press-frame" />,
+  );
+}
+
+const glassAiRoot = document.getElementById("glass-ai-root");
+if (glassAiRoot) {
+  createRoot(glassAiRoot).render(
+    <GlassAiButton className="glass-ai-button-frame" />,
+  );
+}
+
+const uplinkLoaderRoot = document.getElementById("uplink-loader-root");
+if (uplinkLoaderRoot && document.documentElement.classList.contains("intro-active")) {
+  const uplinkApp = createRoot(uplinkLoaderRoot);
+  uplinkApp.render(
+    <UplinkLoader className="portfolio-uplink-loader" />,
+  );
+  window.BTP_UPLINK = { unmount: () => uplinkApp.unmount() };
 }
 
 const wheelRoot = document.getElementById("works-wheel-root");

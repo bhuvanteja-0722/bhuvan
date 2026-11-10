@@ -16,9 +16,10 @@
   <link rel="icon" href="assets/favicon.svg?v=red-swarm-crt-2026-11-10" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/app.css?v=aether-cursor-2026-11-10">
-  <link rel="stylesheet" href="fresh.css?v=aether-cursor-2026-11-10">
+  <link rel="stylesheet" href="assets/app.css?v=portfolio-effects-2026-11-10">
+  <link rel="stylesheet" href="fresh.css?v=portfolio-effects-2026-11-10">
   <link rel="stylesheet" href="src/shaders/threeui.css?v=crt-source-860a1eb1d4c9">
   <script>
     try {
@@ -31,6 +32,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-aether-root" id="site-aether-root" aria-hidden="true"></div>
 
   <div class="crt-sequence" id="crt-sequence" aria-hidden="true">
     <div id="crt-react-root"></div>
@@ -47,19 +49,7 @@
     </div>
   </div>
   <div class="site-loader" id="site-loader" aria-hidden="true">
-    <svg class="loader-emblem" viewBox="0 0 120 120" role="presentation">
-      <defs>
-        <linearGradient id="loader-gradient" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stop-color="#f5223a"/>
-          <stop offset="1" stop-color="#d71930"/>
-        </linearGradient>
-      </defs>
-      <circle class="loader-orbit" cx="60" cy="60" r="46"/>
-      <path class="loader-glyph" d="M44 28v64h23c12 0 20-7 20-18 0-10-7-17-18-17H44m17 0c11 0 18-6 18-15 0-9-7-14-18-14H44"/>
-      <circle class="loader-node" cx="94" cy="30" r="4"/>
-    </svg>
-    <p>BHUVAN TEJA <span>/</span> 2026</p>
-    <small>SYNCING SIGNALS · PROJECTS · CREDENTIALS</small>
+    <div id="uplink-loader-root" aria-hidden="true"></div>
   </div>
   <button class="soundtrack-toggle" id="soundtrack-toggle" type="button" aria-controls="soundtrack-panel" aria-expanded="false">
     <span class="soundtrack-glyph" aria-hidden="true">♫</span><span id="soundtrack-toggle-label">Intro music</span><span class="soundtrack-toggle-mark" aria-hidden="true">+</span>
@@ -77,7 +67,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <a href="#work">Work <span id="project-nav-count">21</span></a>
       <a href="#about">About</a>
-      <a href="#credentials">Credentials <span>27</span></a>
+      <a href="#credentials">Credentials <span id="credential-nav-count">30</span></a>
       <a href="#contact">Contact</a>
       <a class="nav-resume" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
     </nav>
@@ -90,7 +80,6 @@
     <section class="hero" id="top" aria-label="Bhuvan Teja portfolio introduction">
       <div class="hero-atmosphere" aria-hidden="true"></div>
       <canvas class="hero-field" id="hero-field" aria-hidden="true"></canvas>
-      <div class="hero-aether-root" id="hero-aether-root" aria-hidden="true"></div>
       <div class="hero-grid page-wrap">
         <div class="hero-copy">
           <div id="hero-name-root" class="hero-name-root" aria-live="polite"><noscript><h1>Bhuvan Teja</h1></noscript></div>
@@ -170,9 +159,10 @@
           <p class="eyebrow"><span class="award-star" aria-hidden="true">✳</span> MST BLOCKCHAIN × NEWRRO · 24-HOUR BUILDATHON</p>
           <h2 id="recognition-title">Special<br>Recognition<br><em>Prize.</em></h2>
           <p class="recognition-lead">A 24-hour build, a team of builders, and a better way to carry proof of what you can do.</p>
-          <p class="recognition-body">Team MIB created ProofPass, an AI and zero-knowledge skill passport designed to make digital credentials easier to verify. The project received the Special Recognition Prize at the MST Blockchain × Newrro Buildathon.</p>
+          <p class="recognition-body">Team MIB created ProofPass, an AI and zero-knowledge skill passport designed to make digital credentials easier to verify. The LinkedIn post records the Special Recognition Prize; the accompanying MST Blockchain certificate names Bhuvan Teja and Team MIB among the 2026 Buildathon winners.</p>
           <div class="recognition-links">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7515700595832590336/" target="_blank" rel="noopener noreferrer">Read my LinkedIn post <span aria-hidden="true">↗</span></a>
+            <a href="https://lnkd.in/p/g9a5DKn2" target="_blank" rel="noopener noreferrer">Read my LinkedIn post <span aria-hidden="true">↗</span></a>
+            <a href="#credentials">View winners certificate <span aria-hidden="true">↘</span></a>
             <a href="https://lnkd.in/ge4MeA2B" target="_blank" rel="noopener noreferrer">Explore ProofPass <span aria-hidden="true">↗</span></a>
             <a href="https://lnkd.in/gxMMHVp4" target="_blank" rel="noopener noreferrer">Open project demo <span aria-hidden="true">↗</span></a>
             <a href="https://medium.com/@MSTblockchainHQ/mst-blockchain-launches-the-buildathon-series-7a0741dcb31d" target="_blank" rel="noopener noreferrer">Buildathon recap <span aria-hidden="true">↗</span></a>
@@ -221,15 +211,19 @@
           <div><p class="eyebrow eyebrow-dark">EVIDENCE OF THE WORK</p><h2 id="credentials-title">Learning, <em>documented.</em></h2></div>
           <p>Every scan is framed in full. Open a certificate to inspect it, then follow its issuer link where online verification is available.</p>
         </div>
+        <div class="credential-press-heading"><span>ASHEN PRESS / THE LEARNING SHELF</span><span>HOVER · SELECT · DRAG · OPEN</span></div>
+        <div class="credential-press-root" id="credential-press-root"><noscript>Interactive volumes require JavaScript; all 30 complete certificate scans are listed below.</noscript></div>
+        <p class="credential-press-note">Ten interactive volumes group every credential. Open a volume for its full-page plates; use the archive below for individual scans and issuer verification.</p>
         <div class="credential-filters" id="cert-filters" role="group" aria-label="Filter credentials">
-          <button class="selected" type="button" data-filter="all" aria-pressed="true">All <span>27</span></button>
+          <button class="selected" type="button" data-filter="all" aria-pressed="true">All <span>30</span></button>
           <button type="button" data-filter="ai" aria-pressed="false">AI &amp; GenAI</button>
           <button type="button" data-filter="data" aria-pressed="false">Data</button>
           <button type="button" data-filter="programming" aria-pressed="false">Programming</button>
           <button type="button" data-filter="development" aria-pressed="false">Development</button>
+          <button type="button" data-filter="research" aria-pressed="false">Research</button>
           <button type="button" data-filter="hackathon" aria-pressed="false">Hackathons</button>
         </div>
-        <p class="credential-count" id="cert-count" aria-live="polite">27 CERTIFICATES</p>
+        <p class="credential-count" id="cert-count" aria-live="polite">30 CERTIFICATES</p>
         <div class="certificate-grid" id="certificate-grid"></div>
       </div>
     </section>
@@ -243,6 +237,10 @@
           <div class="contact-actions">
             <a class="contact-email" href="mailto:bhuvanteja.ad24@bmsce.ac.in">bhuvanteja.ad24@bmsce.ac.in <span aria-hidden="true">↗</span></a>
             <a class="button button-bright" href="resume.html">Open my resume <span aria-hidden="true">↗</span></a>
+            <div class="glass-ai-study">
+              <div class="glass-ai-study-label"><span>INTERACTIVE STUDY / 01</span><span>GPT 6 SOL</span></div>
+              <div id="glass-ai-root"></div>
+            </div>
           </div>
         </div>
         <div class="social-links" id="social-links" aria-label="Social profiles"></div>
@@ -268,12 +266,10 @@
     <div class="dialog-actions" id="dialog-actions"></div>
   </dialog>
 
-  <canvas class="cursor-flow" id="cursor-flow" aria-hidden="true"></canvas>
   <script src="assets/crt-mount.js?v=crt-source-860a1eb1d4c9" defer></script>
-  <script src="portfolio-data.js?v=aether-cursor-2026-11-10" defer></script>
-  <script src="assets/site-mount.js?v=aether-cursor-2026-11-10" defer></script>
-  <script src="cursor-flow.js?v=aether-cursor-2026-11-10" defer></script>
-  <script src="intro.js?v=aether-cursor-2026-11-10" defer></script>
-  <script src="script.js?v=aether-cursor-2026-11-10" defer></script>
+  <script src="portfolio-data.js?v=aether-uplink-2026-11-10" defer></script>
+  <script src="assets/site-mount.js?v=portfolio-effects-2026-11-10" defer></script>
+  <script src="intro.js?v=portfolio-effects-2026-11-10" defer></script>
+  <script src="script.js?v=portfolio-update-2026-11-10" defer></script>
 </body>
 </html>
