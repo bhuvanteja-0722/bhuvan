@@ -16,7 +16,8 @@ cp "$root_dir/index.html" "$root_dir/resume.html" "$root_dir/fresh.css" \
   "$root_dir/intro.js" "$root_dir/script.js" \
   "$root_dir/portfolio-data.js" "$publish_dir/"
 cp "$root_dir/assets/favicon.svg" "$root_dir/assets/share-card.svg" \
-  "$root_dir/assets/bhuvan-blue-suit.png" "$root_dir/assets/crt-mount.js" \
+  "$root_dir/assets/bhuvan-blue-suit.png" "$root_dir/assets/bhuvan-id-portrait.jpg" \
+  "$root_dir/assets/crt-mount.js" \
   "$root_dir/assets/site-mount.js" "$root_dir/assets/app.css" \
   "$root_dir/assets/champ-has-arrived.mp3" "$publish_dir/assets/"
 cp "$root_dir"/assets/project-art/*.jpg "$publish_dir/assets/project-art/"
