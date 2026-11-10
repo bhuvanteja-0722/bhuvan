@@ -52,7 +52,7 @@ export function AshenPress({ className = "", style }: AshenPressProps) {
       style={{
         position: "relative",
         overflow: "hidden",
-        background: "#c6ae8e",
+        background: "#080607",
         pointerEvents: "auto",
         ...style,
       }}
@@ -71,7 +71,7 @@ export function AshenPress({ className = "", style }: AshenPressProps) {
             width: "100%",
             height: "100%",
             border: 0,
-            background: "#c6ae8e",
+            background: "#080607",
             opacity: ready ? 1 : 0,
             pointerEvents: ready ? "auto" : "none",
             transition: "opacity 240ms ease-out",

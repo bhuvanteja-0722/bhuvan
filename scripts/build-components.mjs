@@ -18,6 +18,16 @@ const pressGroups = [
   { title: "Research Methodology", t1: "RESEARCH", t2: "METHODS", sub: "NPTEL · IIT MADRAS", spine: "#6f5144", cloth: "#191615", edge: "#e7dbd1", blurb: "The NPTEL course certificate for Research Methodology, completed in July–October 2026.", certificates: ["Research Methodology"] },
 ];
 
+// Keep certificate groupings intact while giving all ten volumes one tailored
+// oxblood and charcoal palette for this portfolio.
+const pressSpines = ["#c52a43", "#a91f36", "#d33a50", "#8f172d", "#bc233c", "#e1495a", "#9f2037", "#cf3148", "#7e1428", "#ad263b"];
+const pressCloths = ["#16090c", "#1d090e", "#13090b", "#200a10", "#17090d", "#210b10", "#14080c", "#1c080d", "#110709", "#1a080d"];
+pressGroups.forEach((group, index) => {
+  group.spine = pressSpines[index];
+  group.cloth = pressCloths[index];
+  group.edge = "#eadde0";
+});
+
 const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 const xml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[char]);
 const svgDataUri = (svg) => `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
@@ -97,7 +107,40 @@ function authoredPressWithCredentials(source) {
   source = source
     .replace("new Promise(r=>setTimeout(r,2200))", "new Promise(r=>setTimeout(r,320))")
     .replace("introStagger: 78, introWallFade: 1000, introFade: 460", "introStagger: 24, introWallFade: 480, introFade: 260")
-    .replace("renderer.setPixelRatio(Math.min(devicePixelRatio,2))", "renderer.setPixelRatio(Math.min(devicePixelRatio,1.5))");
+    .replace("renderer.setPixelRatio(Math.min(devicePixelRatio,2))", "renderer.setPixelRatio(Math.min(devicePixelRatio,1.5))")
+    .replace("g.fillStyle='#7d5228'", "g.fillStyle='#17090d'")
+    .replace("peak:231, bell:15, bellR:4.6, rightLift:4,", "peak:24, bell:7, bellR:4.6, rightLift:3,")
+    .replace("tint:[1.0,0.876,0.726]", "tint:[0.34,0.11,0.15]")
+    .replace("rgba(${146+r()*40|0},${98+r()*26|0},${48+r()*22|0},", "rgba(${91+r()*30|0},${13+r()*8|0},${24+r()*12|0},")
+    .replace("rgba(${38+r()*26|0},${22+r()*16|0},${9+r()*10|0},", "rgba(${24+r()*14|0},${7+r()*7|0},${12+r()*8|0},")
+    .replace("rgba(${186+r()*40|0},${138+r()*32|0},${80+r()*26|0},", "rgba(${132+r()*34|0},${31+r()*18|0},${47+r()*20|0},")
+    .replace("rgba(${62+r()*26|0},${38+r()*18|0},${16+r()*12|0},", "rgba(${68+r()*22|0},${15+r()*9|0},${27+r()*12|0},")
+    .replace("rgba(${208+r()*26|0},${172+r()*28|0},${118+r()*28|0},", "rgba(${180+r()*26|0},${71+r()*24|0},${84+r()*26|0},")
+    .replace("rgba(${44+r()*28|0},${26+r()*16|0},${10+r()*10|0},", "rgba(${24+r()*12|0},${7+r()*6|0},${13+r()*7|0},")
+    .replace("vec3(0.10,0.082,0.055)*arris", "vec3(0.10,0.025,0.035)*arris")
+    .replace("vec3(0.05,0.040,0.026)*pow", "vec3(0.045,0.018,0.026)*pow")
+    .replace("0x241c12", "0x10080a")
+    .replace("0x241a10", "0x10080a")
+    .replace("0x1a1208", "0x17090d")
+    .replace("renderer.setClearColor(0xc6ae8e,1)", "renderer.setClearColor(0x080607,1)");
+  const redBlackUi = `\n/* Bhuvan Teja portfolio palette: dark gallery, oxblood accents, warm white type. */
+  :root{--bg:#080607;--ink:#f4e9eb;--ink-soft:rgba(244,233,235,.64)}
+  html,body{background:#080607;color:#f4e9eb}
+  .mark{background:#b51f38}.mark svg{fill:#fff2f4}
+  .pill{background:#a81c34;color:#fff4f5;border:1px solid rgba(255,95,115,.42)}
+  .pill:hover{background:#cf2b45}
+  .detail .meta,.mbar-txt p,.tli p,.menu button span{color:rgba(246,230,233,.62)}
+  .detail p{color:rgba(246,230,233,.86)}
+  .detail .acts button,.mbar-acts button{background:rgba(28,10,14,.94);color:#fff0f2;border:1px solid rgba(255,96,117,.3);box-shadow:0 8px 24px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.12)}
+  .detail .acts button:hover{background:#42111c}
+  .mbar-acts button.solid{background:#b51f38;color:#fff}
+  .hint{background:rgba(20,8,11,.94);color:#fff0f2;border:1px solid rgba(255,96,117,.32)}
+  footer{background:linear-gradient(to top,rgba(8,6,7,.97) 46%,rgba(8,6,7,.7) 76%,rgba(8,6,7,0));border-color:rgba(255,220,226,.14)}
+  .tli p{color:rgba(246,230,233,.64)}.tli:hover p{color:#fff1f3}
+  .menu{background:rgba(10,6,8,.97)}.menu button{color:#f4e9eb;border-color:rgba(255,220,226,.14)}
+  .loader{background:#080607}.bar{background:rgba(255,240,243,.2)}.bar i{background:#f5223a}
+`;
+  source = source.replace("</style>", `${redBlackUi}</style>`);
   return source;
 }
 

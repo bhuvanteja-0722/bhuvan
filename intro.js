@@ -6,67 +6,69 @@
   var crtStage = document.getElementById("crt-sequence");
   var swarmScene = document.getElementById("swarm-scene");
   var soundtrackToggle = document.getElementById("soundtrack-toggle");
-  var soundtrackLabel = document.getElementById("soundtrack-toggle-label");
-  var soundtrackPanel = document.getElementById("soundtrack-panel");
   var soundtrackAudio = document.getElementById("portfolio-soundtrack");
-  var soundtrackClose = document.getElementById("soundtrack-close");
   var SWARM_SPEED = 0.25;
 
   function timer(callback, delay) {
     return window.setTimeout(callback, delay);
   }
 
-  function closeSoundtrack() {
-    if (soundtrackPanel) soundtrackPanel.hidden = true;
-    if (soundtrackToggle) soundtrackToggle.setAttribute("aria-expanded", "false");
-    if (soundtrackAudio) soundtrackAudio.pause();
-    if (soundtrackLabel) soundtrackLabel.textContent = "Intro music";
-  }
-
-  function openSoundtrack() {
-    if (!soundtrackPanel || !soundtrackToggle) return;
-    soundtrackPanel.hidden = false;
-    soundtrackToggle.setAttribute("aria-expanded", "true");
-    if (soundtrackAudio) {
-      soundtrackAudio.volume = 0.64;
-      var playAttempt = soundtrackAudio.play();
-      if (playAttempt && typeof playAttempt.then === "function") {
-        playAttempt.then(function () {
-          if (soundtrackLabel) soundtrackLabel.textContent = "Intro music playing";
-        }).catch(function () {
-          if (soundtrackLabel) soundtrackLabel.textContent = "Tap to enable intro music";
-        });
-      }
-    }
-    if (soundtrackClose) soundtrackClose.focus();
+  function syncSoundtrackControl() {
+    if (!soundtrackToggle || !soundtrackAudio) return;
+    var audible = !soundtrackAudio.muted && !soundtrackAudio.paused;
+    soundtrackToggle.setAttribute("aria-pressed", audible ? "true" : "false");
+    soundtrackToggle.setAttribute("aria-label", audible ? "Mute background music" : "Unmute background music");
+    soundtrackToggle.title = audible ? "Mute background music" : "Unmute background music";
   }
 
   function startIntroSoundtrack() {
-    if (!active || !soundtrackAudio) return;
+    if (!soundtrackAudio) return;
+    soundtrackAudio.loop = true;
     soundtrackAudio.volume = 0.64;
+    soundtrackAudio.muted = true;
     var playAttempt = soundtrackAudio.play();
-    if (playAttempt && typeof playAttempt.then === "function") {
-      playAttempt.then(function () {
-        if (soundtrackLabel) soundtrackLabel.textContent = "Intro music playing";
-      }).catch(function () {
-        if (soundtrackLabel) soundtrackLabel.textContent = "Tap to enable intro music";
-      });
-    }
+    if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(syncSoundtrackControl);
+    syncSoundtrackControl();
   }
 
   if (soundtrackToggle) soundtrackToggle.addEventListener("click", function () {
-    if (soundtrackPanel && soundtrackPanel.hidden) openSoundtrack();
-    else closeSoundtrack();
+    if (!soundtrackAudio) return;
+    soundtrackAudio.loop = true;
+    soundtrackAudio.volume = 0.64;
+    if (soundtrackAudio.muted || soundtrackAudio.paused) {
+      soundtrackAudio.muted = false;
+      var playAttempt = soundtrackAudio.play();
+      if (playAttempt && typeof playAttempt.catch === "function") {
+        playAttempt.catch(function () {
+          soundtrackAudio.muted = true;
+          syncSoundtrackControl();
+        });
+      }
+    } else {
+      soundtrackAudio.muted = true;
+    }
+    syncSoundtrackControl();
   });
-  if (soundtrackClose) soundtrackClose.addEventListener("click", closeSoundtrack);
-
-  if (!active) {
-    if (soundtrackToggle) soundtrackToggle.hidden = true;
-    if (soundtrackPanel) soundtrackPanel.hidden = true;
-    return;
+  if (soundtrackAudio) {
+    var retryMutedAutoplay = function () {
+      if (!soundtrackAudio.muted || !soundtrackAudio.paused) return;
+      var retry = soundtrackAudio.play();
+      if (retry && typeof retry.catch === "function") retry.catch(syncSoundtrackControl);
+    };
+    soundtrackAudio.addEventListener("loadeddata", retryMutedAutoplay, { once: true });
+    soundtrackAudio.addEventListener("canplay", retryMutedAutoplay, { once: true });
+    soundtrackAudio.addEventListener("play", syncSoundtrackControl);
+    soundtrackAudio.addEventListener("pause", syncSoundtrackControl);
+    soundtrackAudio.addEventListener("volumechange", syncSoundtrackControl);
+    soundtrackAudio.addEventListener("ended", function () {
+      soundtrackAudio.currentTime = 0;
+      soundtrackAudio.play().catch(syncSoundtrackControl);
+    });
   }
 
   startIntroSoundtrack();
+
+  if (!active) return;
 
   var skipTimers = [];
   var tourFrame = 0;
@@ -331,10 +333,6 @@
     skipTimers = [];
     root.classList.remove("intro-active", "intro-terminal", "intro-blue", "intro-blank", "intro-tour", "intro-return");
     if (window.BTP_UPLINK) { window.BTP_UPLINK.unmount(); window.BTP_UPLINK = null; }
-    if (soundtrackAudio) { soundtrackAudio.pause(); soundtrackAudio.currentTime = 0; }
-    if (soundtrackLabel) soundtrackLabel.textContent = "Intro music";
-    if (soundtrackPanel) soundtrackPanel.hidden = true;
-    if (soundtrackToggle) { soundtrackToggle.hidden = true; soundtrackToggle.setAttribute("aria-expanded", "false"); }
     targets.forEach(function (target) {
       target.classList.remove("swarm-build-target", "swarm-building", "swarm-built", "swarm-typing");
       target.style.removeProperty("--swarm-action-duration");
@@ -357,7 +355,7 @@
 
   function interruptIntro(event) {
     if (!root.classList.contains("intro-active") && !root.classList.contains("intro-terminal") && !root.classList.contains("intro-blue") && !root.classList.contains("intro-blank") && !root.classList.contains("intro-tour")) return;
-    if (event && event.type !== "keydown" && event.target && event.target.closest && event.target.closest("#soundtrack-toggle, #soundtrack-panel")) return;
+    if (event && event.type !== "keydown" && event.target && event.target.closest && event.target.closest("#soundtrack-toggle")) return;
     returnToHero();
   }
 

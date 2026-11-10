@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
 import AetherFlowHero from "../components/ui/aether-flow-hero";
+import { ContactIdCard } from "../components/ui/contact-id-card";
 import PathDrawingPortfolioHero from "../components/ui/path-drawing-portfolio-hero";
 import WorksWheel from "../components/ui/works-wheel";
 import { AshenPress } from "./shaders/ashen-press/AshenPress";
-import { GlassAiButton } from "./shaders/glass-ai-button/GlassAiButton";
 import { UplinkLoader } from "./shaders/uplink-loader/UplinkLoader";
 
 type Project = {
@@ -53,11 +53,9 @@ if (credentialPressRoot) {
   );
 }
 
-const glassAiRoot = document.getElementById("glass-ai-root");
-if (glassAiRoot) {
-  createRoot(glassAiRoot).render(
-    <GlassAiButton className="glass-ai-button-frame" />,
-  );
+const idCardRoot = document.getElementById("id-card-root");
+if (idCardRoot) {
+  createRoot(idCardRoot).render(<ContactIdCard />);
 }
 
 const uplinkLoaderRoot = document.getElementById("uplink-loader-root");
