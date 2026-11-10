@@ -3,7 +3,7 @@ services:
     runtime: static
     name: bhuvan-teja-portfolio
     branch: main
-    buildCommand: ./scripts/build-static.sh
+    buildCommand: npm ci && ./scripts/build-static.sh
     staticPublishPath: ./dist
     autoDeploy: true
     headers:

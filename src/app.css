@@ -1,0 +1,13 @@
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@source "../index.html";
+@source "../components";
+@source "./";
+
+@theme {
+  --color-background: #090809;
+  --color-foreground: #f7f3f4;
+  --color-muted: #171416;
+  --color-muted-foreground: #aaa1a5;
+}

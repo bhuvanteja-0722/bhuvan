@@ -14,14 +14,6 @@
       .replace(/'/g, "&#39;");
   };
 
-  var intro = document.documentElement.classList.contains("intro-active");
-  if (intro) {
-    window.setTimeout(function () {
-      document.documentElement.classList.remove("intro-active");
-      try { sessionStorage.setItem("btp-intro-seen", "1"); } catch (_) {}
-    }, 1320);
-  }
-
   var scenes = {
     proof: {
       title: "Proof of capability.",
@@ -131,6 +123,8 @@
   var detail = byId("project-detail");
   var projectTotal = byId("project-total");
   if (projectTotal) projectTotal.textContent = String(projects.length).padStart(2, "0") + " BUILDS";
+  var projectNavCount = byId("project-nav-count");
+  if (projectNavCount) projectNavCount.textContent = String(projects.length);
   var workCount = document.querySelector(".work-list-heading span:last-child");
   if (workCount) workCount.textContent = "01 — " + String(projects.length).padStart(2, "0");
 
@@ -382,7 +376,7 @@
         for (var r = 0; r < 2; r += 1) {
           context.beginPath();
           context.ellipse(cx, cy, radius * (1.06 + r * 0.08), radius * (0.34 + r * 0.07), r ? 0.48 : -0.38, 0, Math.PI * 2);
-          context.strokeStyle = r ? "rgba(245,189,130,.12)" : "rgba(255,112,128,.16)";
+          context.strokeStyle = r ? "rgba(255,50,68,.12)" : "rgba(245,34,58,.16)";
           context.lineWidth = 1;
           context.stroke();
         }
@@ -409,10 +403,10 @@
           context.beginPath();
           context.arc(px, py, size, 0, Math.PI * 2);
           context.fillStyle = tint
-            ? "rgba(243,189,115," + (alpha * 0.8) + ")"
+            ? "rgba(245,34,58," + (alpha * 0.8) + ")"
             : (p % 7 === 0
-              ? "rgba(243,189,115," + alpha + ")"
-              : "rgba(255,128,100," + alpha + ")");
+              ? "rgba(245,34,58," + alpha + ")"
+              : "rgba(245,34,58," + alpha + ")");
           context.fill();
         }
         context.restore();

@@ -1,0 +1,20 @@
+{
+  "name": "bhuvan-portfolio",
+  "private": true,
+  "scripts": {
+    "build:crt": "node scripts/build-crt.mjs",
+    "build:components": "node scripts/build-components.mjs",
+    "build:styles": "tailwindcss -i src/app.css -o assets/app.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "esbuild": "0.28.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "motion": "^14.12.0"
+  }
+}

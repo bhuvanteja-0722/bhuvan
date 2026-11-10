@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
-  <meta name="theme-color" content="#100a12">
+  <meta name="theme-color" content="#050506">
   <meta name="description" content="Bhuvan Teja Ponakala is an AI and data science engineering student building useful machine learning, data, and software projects in Bengaluru.">
   <meta property="og:title" content="Bhuvan Teja Ponakala — AI, made useful">
   <meta property="og:description" content="Applied AI, data systems, and software built for people to use.">
@@ -13,14 +13,17 @@
   <meta property="og:image" content="assets/share-card.svg">
   <meta name="twitter:card" content="summary_large_image">
   <title>Bhuvan Teja Ponakala — AI &amp; Data Science Portfolio</title>
-  <link rel="icon" href="assets/favicon.svg?v=palette-2026-11-07" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg?v=red-swarm-crt-2026-11-10" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="fresh.css?v=india-demo-2026-11-07">
+  <link rel="stylesheet" href="assets/app.css?v=portfolio-refit-2026-11-10">
+  <link rel="stylesheet" href="fresh.css?v=portfolio-refit-2026-11-10">
+  <link rel="stylesheet" href="src/shaders/threeui.css?v=crt-source-860a1eb1d4c9">
   <script>
     try {
-      if (!sessionStorage.getItem("btp-intro-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.__btpIntroStartedAt = Date.now();
         document.documentElement.classList.add("intro-active");
       }
     } catch (_) {}
@@ -29,12 +32,26 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <div class="crt-sequence" id="crt-sequence" aria-hidden="true">
+    <div id="crt-react-root"></div>
+    <div class="crt-caption"><span>DISPLAY CALIBRATION</span><b id="crt-stage-label">PHOSPHOR / 01</b></div>
+  </div>
+  <div class="swarm-scene" id="swarm-scene" aria-hidden="true">
+    <canvas class="swarm-field" id="swarm-field"></canvas>
+    <div class="swarm-origin" id="swarm-origin"><span class="swarm-origin-mark">B<span>.</span></span><small>PORTFOLIO / BUILD 2026</small></div>
+    <div class="swarm-agent-layer" id="swarm-agent-layer"></div>
+    <div class="swarm-wireframe-layer" id="swarm-wireframe-layer"></div>
+    <div class="swarm-readout">
+      <div class="swarm-readout-top"><span><i></i> SITE REBUILD</span><span id="swarm-step">INITIALIZING / 00%</span></div>
+      <div class="swarm-progress"><span id="swarm-progress"></span></div>
+    </div>
+  </div>
   <div class="site-loader" id="site-loader" aria-hidden="true">
     <svg class="loader-emblem" viewBox="0 0 120 120" role="presentation">
       <defs>
         <linearGradient id="loader-gradient" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stop-color="#ff8064"/>
-          <stop offset="1" stop-color="#f3bd73"/>
+          <stop offset="0" stop-color="#f5223a"/>
+          <stop offset="1" stop-color="#d71930"/>
         </linearGradient>
       </defs>
       <circle class="loader-orbit" cx="60" cy="60" r="46"/>
@@ -42,8 +59,15 @@
       <circle class="loader-node" cx="94" cy="30" r="4"/>
     </svg>
     <p>BHUVAN TEJA <span>/</span> 2026</p>
-    <small>DRAWING A CLEARER PICTURE</small>
+    <small>SYNCING SIGNALS · PROJECTS · CREDENTIALS</small>
   </div>
+  <button class="soundtrack-toggle" id="soundtrack-toggle" type="button" aria-controls="soundtrack-panel" aria-expanded="false">
+    <span class="soundtrack-glyph" aria-hidden="true">♫</span><span id="soundtrack-toggle-label">Intro music</span><span class="soundtrack-toggle-mark" aria-hidden="true">+</span>
+  </button>
+  <aside class="soundtrack-panel" id="soundtrack-panel" aria-label="Soundtrack player" hidden>
+    <div class="soundtrack-panel-head"><span><small>INTRO SOUNDTRACK</small><b>Champ Has Arrived</b></span><button class="soundtrack-close" id="soundtrack-close" type="button" aria-label="Close intro soundtrack player">×</button></div>
+    <div class="soundtrack-frame"><audio id="portfolio-soundtrack" controls autoplay preload="auto" aria-label="Play Champ Has Arrived"><source src="assets/champ-has-arrived.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></div>
+  </aside>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Bhuvan Teja Ponakala — home">
@@ -51,7 +75,7 @@
       <span class="brand-name">Bhuvan Teja<small>AI / DATA SCIENCE</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#work">Work <span>17</span></a>
+      <a href="#work">Work <span id="project-nav-count">21</span></a>
       <a href="#about">About</a>
       <a href="#credentials">Credentials <span>27</span></a>
       <a href="#contact">Contact</a>
@@ -63,14 +87,14 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section class="hero" id="top" aria-label="Bhuvan Teja portfolio introduction">
       <div class="hero-atmosphere" aria-hidden="true"></div>
       <canvas class="hero-field" id="hero-field" aria-hidden="true"></canvas>
+      <div class="hero-aether-root" id="hero-aether-root" aria-hidden="true"></div>
       <div class="hero-grid page-wrap">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="status-light" aria-hidden="true"></span> AI + DATA SCIENCE <i>·</i> BENGALURU, INDIA</p>
-          <h1 id="hero-title">I build AI that moves from <em>signal</em> to something useful.</h1>
-          <p class="hero-intro">I’m Bhuvan Teja Ponakala — an engineering student exploring machine learning, data, and the craft of turning ideas into working software.</p>
+          <div id="hero-name-root" class="hero-name-root" aria-live="polite"><noscript><h1>Bhuvan Teja</h1></noscript></div>
+          <p class="hero-intro">AI &amp; Data Science student at B.M.S. College of Engineering, exploring machine learning, useful software, and ideas that make it out of the notebook.</p>
           <div class="hero-actions">
             <a class="button button-bright" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
             <a class="button button-glass" href="resume.html">Open resume <span aria-hidden="true">↗</span></a>
@@ -175,17 +199,13 @@
 
     <section class="work section-surface" id="work" aria-labelledby="work-title">
       <div class="page-wrap">
-        <div class="section-kicker section-kicker-light"><span>03 / PROJECT INDEX</span><span id="project-total">17 BUILDS</span></div>
+        <div class="section-kicker section-kicker-light"><span>03 / PROJECT INDEX</span><span id="project-total">21 BUILDS</span></div>
         <div class="section-intro-row">
           <div><p class="eyebrow eyebrow-light">THOUGHT THROUGH. BUILT OUT.</p><h2 id="work-title">Selected <em>work.</em></h2></div>
           <p>Projects across applied AI, data, software, and systems. Choose a build to see its brief and open its source.</p>
         </div>
-        <div class="workbench">
-          <div class="work-list-wrap">
-            <div class="work-list-heading"><span>PROJECTS</span><span>01 — 17</span></div>
-            <div class="project-list" id="project-list" role="group" aria-label="Choose a project"></div>
-          </div>
-          <article class="project-panel" id="project-detail" aria-live="polite"></article>
+        <div class="works-wheel-shell" id="works-wheel-root" aria-label="Interactive 3D project wheel">
+          <noscript><p>Browse all project repositories from <a href="https://github.com/bhuvanteja-0722?tab=repositories">GitHub</a>.</p></noscript>
         </div>
         <div class="work-bottom">
           <span>MORE EXPERIMENTS, NOTES AND SOURCE</span>
@@ -248,7 +268,12 @@
     <div class="dialog-actions" id="dialog-actions"></div>
   </dialog>
 
-  <script src="portfolio-data.js?v=india-demo-2026-11-07" defer></script>
-  <script src="script.js?v=india-demo-2026-11-07" defer></script>
+  <div class="cursor-orb" id="cursor-orb" aria-hidden="true"><span class="cursor-orb-core"></span><i></i><i></i><i></i><i></i></div>
+  <script src="assets/crt-mount.js?v=crt-source-860a1eb1d4c9" defer></script>
+  <script src="portfolio-data.js?v=portfolio-refit-2026-11-10" defer></script>
+  <script src="assets/site-mount.js?v=portfolio-refit-2026-11-10" defer></script>
+  <script src="cursor-ball.js?v=portfolio-refit-2026-11-10" defer></script>
+  <script src="intro.js?v=portfolio-refit-2026-11-10" defer></script>
+  <script src="script.js?v=portfolio-refit-2026-11-10" defer></script>
 </body>
 </html>
